@@ -6,9 +6,38 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body data-hook="controller-<%= controller_name %> action-<%= action_name %>">
+  <header class="header">
+
+  <div class="container">
+    <% if user_signed_in? %>
+      <div class="header-left">
+      <div class="header-item">
+      <p><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %></p>
+    </div>
+    </div>
+
+    <div class="header-right">
+      <span class="header-item">
+      <p><%= "Hola! " + current_user.name %><p>
+      </span>
+    </div>
+    <% else %>
+    <div class="header-left">
+      <p>
+        <%= link_to 'Sign_up', new_user_registration_path %> | 
+        <%= link_to 'Sign_in', new_user_session_path %>
+      </p>
+    <% end %>
+  </div>
+  </div>
+  </header>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+<%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>
