@@ -7,37 +7,104 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body data-hook="controller-<%= controller_name %> action-<%= action_name %>">
-  <header class="header">
+<body>
 
-  <div class="container">
-    <% if user_signed_in? %>
-      <div class="header-left">
-      <div class="header-item">
-      <p><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %></p>
-    </div>
-    </div>
+  <section class="hero is-info is-large">
+  <!-- Hero header: will stick at the top -->
+  <div class="hero-header">
+    <header class="header">
+      <div class="container">
+        <div class="header-left">
+          <a class="header-item" href="<%=root_path%>">
+        <img src="#" alt="Logo">
+      </a>
+        </div>
+        <span class="header-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <div class="header-right header-menu">
+          <% if user_signed_in? %>
 
-    <div class="header-right">
-      <span class="header-item">
-      <p><%= "Hola! " + current_user.name %><p>
-      </span>
-    </div>
-    <% else %>
-    <div class="header-left">
-      <p>
-        <%= link_to 'Sign_up', new_user_registration_path %> | 
-        <%= link_to 'Sign_in', new_user_session_path %>
-      </p>
-    <% end %>
+            <p><%= "Hola! " + current_user.name %><p>
+
+            <span class="header-item">
+            <%= link_to 'My profile', profile_path %>
+            </span>
+            <span class="header-item">
+            <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
+            </span>
+          
+          <% else %>
+            
+            <span class="header-item"> 
+            <%= link_to 'Sign_in', new_user_session_path %>
+            </span>
+            <span class="header-item">
+            <a class="button" href="<%=new_user_registration_path%>">Sign Up!</a>
+            </span>
+
+          <% end %>
+
+        </div>
+      </div>
+    </header>
   </div>
-  </div>
-  </header>
 
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-content">
+    <div class="container">
+      <h1 class="title">
+        Title
+      </h1>
+      <h2 class="subtitle">
+        Subtitle
+      </h2>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-footer">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+          <li> <a class="header-tab" href="<%=root_path%>">HOME </a></li>
+          <li><a class="header-tab" href="<%=users_path%>"> BREWERS </a></li>
+          <li><a class="header-tab" href="<%=beers_index_path%>"> BEERS </a></li>
+          <li><a href="#">##########</a></li>
+          <li><a href="#">##########</a></li>
+          <li><a href="#">##########</a></li>
+          <li><a href="#">##########</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
   <div class="container">
     <%= yield %>
   </div>
-<%= debug(params) if Rails.env.development? %>
+</section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content is-centered">
+
+        <p>
+          <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+        </p>
+        
+        <p> Make with ♥ by me </p>
+        
+      </div>
+    </div>
+  </footer>
 
 </body>
+
 </html>

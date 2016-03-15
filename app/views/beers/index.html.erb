@@ -15,9 +15,11 @@
       <tr>
         <td> <a href="<%= user_beer_path(@user,beer) %>"> <%= beer.name %> </a> </td>
         
+        <% if current_user %>
         <td><%= link_to 'Edit', edit_user_beer_path(@user,beer) %></td>
         <td><%= link_to 'Destroy', user_beer_path(@user,beer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Beer', new_user_beer_path(@user) %>
+<%= link_to 'Back to users index', users_path %>

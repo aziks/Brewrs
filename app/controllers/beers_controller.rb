@@ -3,15 +3,15 @@ class BeersController < ApplicationController
   # GET /beers
   # GET /beers.json
   def index
-    @user = current_user
+    @user = User.find(params[:user_id])
     @beers = @user.beers.all
   end
 
   # GET /beers/1
   # GET /beers/1.json
   def show
-    @user = current_user
     @beer = Beer.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   # GET /beers/new
@@ -22,6 +22,8 @@ class BeersController < ApplicationController
 
   # GET /beers/1/edit
   def edit
+    @user = current_user
+    @beer = Beer.find(params[:id])
   end
 
   # POST /beers
@@ -31,7 +33,7 @@ class BeersController < ApplicationController
     @beer = @user.beers.new(beer_params)
 
       if @beer.save
-        redirect_to action: 'index', controller: 'beers'
+        redirect_to user_beers_path, notice: 'Beer was successfully created!' 
       else
         render 'new'  
       end
@@ -41,25 +43,27 @@ class BeersController < ApplicationController
   # PATCH/PUT /beers/1
   # PATCH/PUT /beers/1.json
   def update
-    respond_to do |format|
-      if @beer.update(beer_params)
-        format.html { redirect_to @beer, notice: 'Beer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @beer }
+    @user = User.find(params[:user_id])
+    @beer = @user.beers.find(params[:id])
+
+      if @beer.update_attributes(beer_params)
+        redirect_to user_beers_path, notice: 'Beer was successfully updated!'  
       else
-        format.html { render :edit }
-        format.json { render json: @beer.errors, status: :unprocessable_entity }
+        render 'edit'  
       end
-    end
+    
   end
 
   # DELETE /beers/1
   # DELETE /beers/1.json
   def destroy
+    @user = User.find(params[:user_id])
+    @beer = @user.beers.find(params[:id])
+
     @beer.destroy
-    respond_to do |format|
-      format.html { redirect_to beers_url, notice: 'Beer was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+ 
+    redirect_to user_beers_path, notice: 'Beer was successfully destroyed.' 
+      
   end
 
   private

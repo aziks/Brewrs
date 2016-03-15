@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   
   
-  root 'users#index'
-
-  devise_for :users
+  root 'site#home'
 
   get 'profile', to: 'users#profile'
-  
+
+  get 'beers_index', to: 'site#index_beers'
+ 
+  devise_for :users
+
   resources :users do
     resources :beers
   end

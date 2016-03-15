@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<h1> <%= @beer.name %> </h1>
+<a href="<%= user_path(@user) %>"> <%= @user.name %> </a>
+
+<p> <%= @beer.description %> </p>
+
+<% if user_session %>
 <%= link_to 'Edit', edit_user_beer_path(@user, @beer) %> |
-<%= link_to 'Back', user_beers_path(@user) %>
+<% end %>
+<%= link_to 'Back', user_beers_path(@beer.user_id) %>

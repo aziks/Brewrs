@@ -1,9 +1,10 @@
 <h2><%= current_user.name %>!</h2>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit my account', edit_user_path(@user) %> 
 
 <p>
 <strong>Email:</strong> <%= current_user.email %>
 </p>
 
+<%= link_to 'My Beers', user_beers_path(current_user) %> |
 <%= link_to 'New Beer', user_beers_path(@user) %>

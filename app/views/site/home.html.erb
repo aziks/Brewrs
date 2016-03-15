@@ -1,0 +1,24 @@
+
+
+<div class="columns">
+  <div class="column">
+    <h2 class="title"> LAST ADDED BEERS </h2>
+        <ul>
+            <% @last_added_beers.each do |beer| %>
+              <li>
+                <h3> <%= link_to(beer.name, user_beer_path(beer.user_id,beer.id)) %> </h3>
+              </li>
+                             
+            <% end %>
+          </ul>
+  </div>
+  <div class="column">
+    Second column
+  </div>
+  <div class="column">
+    Third column
+  </div>
+  <div class="column">
+    Fourth column
+  </div>
+</div>
