@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314172552) do
+ActiveRecord::Schema.define(version: 20160316093245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20160314172552) do
   end
 
   add_index "beers", ["user_id"], name: "index_beers_on_user_id", using: :btree
+
+  create_table "recipes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "beer_id"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "recipes", ["beer_id"], name: "index_recipes_on_beer_id", using: :btree
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -40,6 +51,10 @@ ActiveRecord::Schema.define(version: 20160314172552) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
