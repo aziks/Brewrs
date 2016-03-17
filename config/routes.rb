@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
-  
-  
+    
   root 'site#home'
 
   get 'profile', to: 'users#profile'
-
   get 'beers_index', to: 'site#index_beers'
- 
+  get 'recipes_index', to: 'site#index_recipes'
+  
   devise_for :users
 
   resources :users do
-    resources :beers
+    resources :recipes do
+      resources :beers
+    end
   end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

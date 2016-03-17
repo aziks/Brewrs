@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="title is-1"> <%= @recipe.title %> </h1>
+<p> Created by: <a href="<%= user_path(@user) %>"> <%= @user.name %> </a> </p>
+
+<p> <%= @recipe.title %> </p>
+
+<% if user_session %>
+<%= link_to 'Edit', edit_user_recipe_path(@user, @recipe) %> |
+<%= link_to 'Add the beer to this recipe!', new_user_recipe_beer_path(@user,@recipe) %>
+<% end %>
+<%= link_to 'Back to user recipes', user_recipes_path(@recipe.user_id) %>

@@ -9,7 +9,9 @@
    
     <div class="column is-quarter">
       <div class="container">
-        PHOTO
+
+        <%= image_tag user.avatar.url(:medium) %>
+
       </div>
       <a href="<%= user_path(user.id) %>"> <%= user.name %> </a>
     </div>

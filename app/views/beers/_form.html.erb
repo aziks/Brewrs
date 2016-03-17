@@ -1,4 +1,4 @@
-<%= form_for [@user, @beer] do |f| %>
+<%= form_for [@user, @recipe, @beer] do |f| %>
   <% if @beer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@beer.errors.count, "error") %> prohibited this beer from being saved:</h2>

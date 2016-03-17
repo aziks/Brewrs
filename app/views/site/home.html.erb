@@ -6,7 +6,7 @@
         <ul>
             <% @last_added_beers.each do |beer| %>
               <li>
-                <h3> <%= link_to(beer.name, user_beer_path(beer.user_id,beer.id)) %> </h3>
+                <h3> <%= link_to(beer.name, user_recipe_beer_path(beer.user_id,beer.recipe_id,beer.id)) %> </h3>
               </li>
                              
             <% end %>

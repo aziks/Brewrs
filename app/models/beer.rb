@@ -1,7 +1,7 @@
 require 'pry'
 class Beer < ActiveRecord::Base
   belongs_to :user
-  has_one :recipe
+  belongs_to :recipe
 
   validates :name, presence: true
   validates :description, presence: true

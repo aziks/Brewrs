@@ -1,3 +1,4 @@
+require 'pry'
 class BeersController < ApplicationController
 
   # GET /beers
@@ -18,6 +19,7 @@ class BeersController < ApplicationController
   def new
     @user = current_user
     @beer = Beer.new
+    @recipe = Recipe.find(params[:recipe_id])
   end
 
   # GET /beers/1/edit
@@ -28,18 +30,24 @@ class BeersController < ApplicationController
 
   # POST /beers
   # POST /beers.json
+
+
   def create
+
     @user = current_user
     @beer = @user.beers.new(beer_params)
 
+    @recipe = Recipe.find(params[:recipe_id])
+
       if @beer.save
-        redirect_to user_beers_path, notice: 'Beer was successfully created!' 
+        @recipe.beer = @beer
+
+        redirect_to user_recipe_beers_path, notice: 'Beer was successfully created!' 
       else
         render 'new'  
       end
     
   end
-
   # PATCH/PUT /beers/1
   # PATCH/PUT /beers/1.json
   def update

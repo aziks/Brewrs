@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="title is-1">Listing Recipes of <%= @user.name %></h1>
+
+<div class="columns is-multiline is-mobile">
+  
+  <% @recipes.each do |recipe| %>
+   
+    <div class="column is-quarter">
+      <div class="container">
+      RECIPE IMAGE
+      </div>
+      <a href="<%= user_recipe_path(recipe.user_id,recipe) %>"> <%= recipe.title %> </a> 
+     
+     <% if current_user %>
+     <p>----------</p>
+    <p><%= link_to 'Edit', edit_user_recipe_path(@user,recipe) %></p>
+    <p><%= link_to 'Destroy', user_recipe_path(@user,recipe), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
+
+    </div>
+   
+ <% end %>
+
+</div>  
+
+<%= link_to 'Back to profile', profile_path %>
+
+

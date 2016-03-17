@@ -8,4 +8,8 @@ class SiteController < ApplicationController
     @beers = Beer.all.sort_by {rand} [0..19]   
   end
 
+  def index_recipes
+    @recipes = Recipe.all.sort_by {rand} [0..19]   
+  end
+
 end

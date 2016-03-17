@@ -1,10 +1,32 @@
-<h2><%= current_user.name %>!</h2>
+<div class="columns">
+  
+  <div class="column is-half">
 
-<%= link_to 'Edit my account', edit_user_path(@user) %> 
+  <h2 class="title">Hola <%= current_user.name %>!</h2>
 
-<p>
-<strong>Email:</strong> <%= current_user.email %>
-</p>
+      <p><%= link_to 'Edit my account', edit_user_path(@user) %> </p>
 
-<%= link_to 'My Beers', user_beers_path(current_user) %> |
-<%= link_to 'New Beer', user_beers_path(@user) %>
+      <%= image_tag current_user.avatar.url(:medium) %>
+          
+        <p>
+        <%= link_to 'My Recipes', user_recipes_path(current_user) %> |
+        <%= link_to 'New Recipe!', new_user_recipe_path(@user) %>
+        </p>
+
+    </div>
+
+  <div class="column is-quarter">
+
+    <h2 class="title"> User's info: </h2>
+  
+    <p><strong>Name:</strong> <%= current_user.name %></p>
+    <p><strong>Email:</strong> <%= current_user.email %></p>
+    <p><strong>Email:</strong> <%= current_user.email %></p>
+
+
+  </div>
+
+</div>
+
+
+

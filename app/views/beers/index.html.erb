@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Beers</h1>
+<% if current_user %>
+  <h1 class="title is-1">Listing My Beers</h1>
+  <h1 class="title"> <a href="<%= profile_path %>"> <%= current_user.name %> </a> </h1>
+<%else%>
+  <h1 class="title is-1">List of Beers</h1>
+  <h1 class="title"> Brewed by: <a href="<%= profile_path %>"> <%= @user.name %> </a> </h1>
+<%end%>
+
 
 <table>
   <thead>
@@ -13,11 +20,11 @@
     <% @beers.each do |beer| %>
       
       <tr>
-        <td> <a href="<%= user_beer_path(@user,beer) %>"> <%= beer.name %> </a> </td>
+        <td> <a href="<%= user_recipe_beer_path(@user.id,beer.recipe_id,beer.id) %>"> <%= beer.name %> </a> </td>
         
         <% if current_user %>
-        <td><%= link_to 'Edit', edit_user_beer_path(@user,beer) %></td>
-        <td><%= link_to 'Destroy', user_beer_path(@user,beer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_user_recipe_beer_path(@user.id,beer.recipe_id,beer.id) %></td>
+        <td><%= link_to 'Destroy', user_recipe_beer_path(@user.id,beer.recipe_id,beer.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
 
       </tr>
@@ -26,5 +33,6 @@
 </table>
 
 <br>
+
 
 <%= link_to 'Back to users index', users_path %>

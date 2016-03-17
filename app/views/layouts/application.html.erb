@@ -9,7 +9,7 @@
 
 <body>
 
-  <section class="hero is-info is-large">
+  <section class="hero is-dark is-bold is-large">
   <!-- Hero header: will stick at the top -->
   <div class="hero-header">
     <header class="header">
@@ -27,8 +27,9 @@
         <div class="header-right header-menu">
           <% if user_signed_in? %>
 
-            <p><%= "Hola! " + current_user.name %><p>
-
+            <span class="header-item">
+            <%= "Hola! " + current_user.name %>
+            </span>
             <span class="header-item">
             <%= link_to 'My profile', profile_path %>
             </span>
@@ -72,10 +73,9 @@
           <li> <a class="header-tab" href="<%=root_path%>">HOME </a></li>
           <li><a class="header-tab" href="<%=users_path%>"> BREWERS </a></li>
           <li><a class="header-tab" href="<%=beers_index_path%>"> BEERS </a></li>
-          <li><a href="#">##########</a></li>
-          <li><a href="#">##########</a></li>
-          <li><a href="#">##########</a></li>
-          <li><a href="#">##########</a></li>
+          <li><a class="header-tab" href="<%=recipes_index_path%>">RECIPES</a></li>
+          <li><a href="#">EVENTS</a></li>
+          
         </ul>
       </div>
     </nav>
@@ -100,7 +100,7 @@
         </p>
         
         <p> Make with ♥ by me </p>
-        
+
       </div>
     </div>
   </footer>

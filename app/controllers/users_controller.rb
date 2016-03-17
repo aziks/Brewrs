@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   before_action :authenticate_user!, except: [:index, :show]
 
   def new
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to 'user_index_path'
+      redirect_to 'profile_path'
     else
       render 'new'
     end
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @recipe = @user.recipes
   end
 
   def index
@@ -52,7 +54,7 @@ private
   # end
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :avatar)
   end
 
 

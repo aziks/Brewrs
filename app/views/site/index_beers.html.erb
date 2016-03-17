@@ -1,11 +1,16 @@
-<h1> BEERS INDEX </h1>
+<h1 class="title is-1"> BEERS INDEX </h1>
 
-<% @beers.each do |beer| %>
+<div class="columns is-multiline is-mobile">
+  
+  <% @beers.each do |beer| %>
+   
+    <div class="column is-quarter">
+      <div class="container">
+      BEER PHOTO
+      </div>
+      <a href="<%= user_recipe_beer_path(beer.user_id,beer.recipe_id,beer) %>"> <%= beer.name %> </a> 
+    </div>
+    
+ <% end %>
 
-<ul>
-<li>
-<a href="<%= user_beer_path(beer.user_id,beer) %>"> <%= beer.name %> </a> 
-</li>
-</ul>
-
-<% end %>
+</div>  

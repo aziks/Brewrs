@@ -1,5 +1,5 @@
-<h1>New Beer</h1>
+<h1 class="title">New Beer for <%= @recipe.title %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', user_beers_path %>
+<%= link_to 'Back', user_recipes_path(@user) %>
