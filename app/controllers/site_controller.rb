@@ -2,6 +2,7 @@ class SiteController < ApplicationController
 
   def home
     @last_added_beers = Beer.last_added
+    @last_brewers = User.last_added
   end
 
   def index_beers

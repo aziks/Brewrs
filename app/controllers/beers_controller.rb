@@ -12,6 +12,7 @@ class BeersController < ApplicationController
   # GET /beers/1.json
   def show
     @beer = Beer.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     @user = User.find(params[:user_id])
   end
 
@@ -25,6 +26,7 @@ class BeersController < ApplicationController
   # GET /beers/1/edit
   def edit
     @user = current_user
+    @recipe = Recipe.find(params[:id])
     @beer = Beer.find(params[:id])
   end
 
@@ -55,7 +57,7 @@ class BeersController < ApplicationController
     @beer = @user.beers.find(params[:id])
 
       if @beer.update_attributes(beer_params)
-        redirect_to user_beers_path, notice: 'Beer was successfully updated!'  
+        redirect_to user_recipe_beers_path, notice: 'Beer was successfully updated!'  
       else
         render 'edit'  
       end
@@ -83,7 +85,7 @@ class BeersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def beer_params
      
-      params.require(:beer).permit(:name, :description)
+      params.require(:beer).permit(:name, :description, :beer_image)
 
     end
 end

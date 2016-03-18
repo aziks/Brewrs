@@ -1,8 +1,10 @@
+<div class="container">
+<h1 class="title is-1">Hola <%= current_user.name %>!</h1>
+</div>
+
 <div class="columns">
   
   <div class="column is-half">
-
-  <h2 class="title">Hola <%= current_user.name %>!</h2>
 
       <p><%= link_to 'Edit my account', edit_user_path(@user) %> </p>
 

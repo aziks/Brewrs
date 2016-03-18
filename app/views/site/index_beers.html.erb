@@ -6,7 +6,7 @@
    
     <div class="column is-quarter">
       <div class="container">
-      BEER PHOTO
+        <%= image_tag beer.beer_image.url(:medium) %>
       </div>
       <a href="<%= user_recipe_beer_path(beer.user_id,beer.recipe_id,beer) %>"> <%= beer.name %> </a> 
     </div>

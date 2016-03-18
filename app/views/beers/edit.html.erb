@@ -1,6 +1,6 @@
-<h1>Editing Beer</h1>
+<h1 class="title is-1">Editing Beer</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', user_beer_path(@user, @beer) %> |
-<%= link_to 'Back', user_beers_path(current_user) %>
+<%= link_to 'Show', user_recipe_beer_path(@user, @recipe, @beer) %> |
+<%= link_to 'Back', user_recipe_beers_path(current_user, @recipe, @beer) %>

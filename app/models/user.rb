@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
   has_many :beers
   has_many :recipes
 
+  def self.last_added
+    users = User.all
+    users.order(created_at: :desc)  
+  end
+
 end
