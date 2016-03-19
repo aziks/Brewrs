@@ -29,6 +29,8 @@ gem 'devise'
 
 gem "paperclip", "~> 4.2"
 
+gem 'acts_as_commentable'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

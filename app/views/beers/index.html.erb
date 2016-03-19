@@ -1,38 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<% if current_user %>
-  <h1 class="title is-1">Listing My Beers</h1>
-  <h1 class="title"> <a href="<%= profile_path %>"> <%= current_user.name %> </a> </h1>
-<%else%>
-  <h1 class="title is-1">List of Beers</h1>
-  <h1 class="title"> Brewed by: <a href="<%= profile_path %>"> <%= @user.name %> </a> </h1>
-<%end%>
+<div class="container">
+  <% if current_user %>
+    <h1 class="title is-1">Listing My Beers</h1>
+    <hr>
+    <h1 class="title"> <%= link_to(current_user.name, profile_path) %> </h1>
+
+  <%else%>
+    <h1 class="title is-1">List of Beers</h1>
+    <hr>
+    <h1 class="title"> Brewed by: <a href="<%= profile_path %>"> <%= @user.name %> </a> </h1>
+  <%end%>
+  <hr>
+</div>
+
+<div class="columns is-multiline is-mobile">
+
+  <% @beers.each do |beer| %>
+
+    <div class="column is-quarter">
+        <div class="container">
+        <h2 class="subtitle"> <%= link_to(beer.name, beer_path(beer.id)) %> </h2>
+          <%= image_tag beer.beer_image.url(:medium) %>
+        </div>
+
+          <% if current_user %>
+          <%= link_to 'Edit', edit_beer_path(beer.id) %>
+          <%= link_to 'Destroy', beer_path(beer.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+
+    </div>
+  <% end %>
+</div>
 
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @beers.each do |beer| %>
-      
-      <tr>
-        <td> <a href="<%= user_recipe_beer_path(@user.id,beer.recipe_id,beer.id) %>"> <%= beer.name %> </a> </td>
-        
-        <% if current_user %>
-        <td><%= link_to 'Edit', edit_user_recipe_beer_path(@user.id,beer.recipe_id,beer.id) %></td>
-        <td><%= link_to 'Destroy', user_recipe_beer_path(@user.id,beer.recipe_id,beer.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 
-<%= link_to 'Back to users index', users_path %>

@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', user_recipe_beer_path(@user, @recipe, @beer) %> |
-<%= link_to 'Back', user_recipe_beers_path(current_user, @recipe, @beer) %>
+<%= link_to 'Show', beer_path(@beer) %> |
+<%= link_to 'Back', beers_path(current_user) %>

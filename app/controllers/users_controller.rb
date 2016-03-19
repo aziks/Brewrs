@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @recipe = @user.recipes
+    @beer = @user.beers
   end
 
   def index
@@ -44,7 +45,8 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
-    render 'users/profile'
+    @recipe = @user.recipes
+    @beer = @user.beers
   end
 
 private

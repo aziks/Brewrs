@@ -9,7 +9,7 @@
 
 <body>
 
-<section class="hero is-dark is-bold is-medium">
+<section class="hero is-warning is-bold is-medium">
   <!-- Hero header: will stick at the top -->
   <div class="hero-header">
     <header class="header">
@@ -17,7 +17,7 @@
         <div class="header-left">
           <a class="header-item" href="<%=root_path%>">
         <img src="#" alt="Logo">
-      </a>
+          </a>
         </div>
         <span class="header-toggle">
           <span></span>
@@ -57,10 +57,10 @@
   <div class="hero-content">
     <div class="container">
       <h1 class="title">
-        Title
+        Drink responsibly!
       </h1>
       <h2 class="subtitle">
-        Subtitle
+        Never drink and drive
       </h2>
     </div>
   </div>
@@ -70,11 +70,12 @@
     <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
         <ul>
-          <li> <a class="header-tab" href="<%=root_path%>">HOME </a></li>
-          <li><a class="header-tab" href="<%=users_path%>"> BREWERS </a></li>
-          <li><a class="header-tab" href="<%=beers_index_path%>"> BEERS </a></li>
-          <li><a class="header-tab" href="<%=recipes_index_path%>">RECIPES</a></li>
-          <li><a href="#">EVENTS</a></li>
+
+          <li class="is-flex"> <a class="header-tab" href="<%=root_path%>">HOME </a></li>
+          <li class="is-flex"><a class="header-tab" href="<%=users_path%>"> BREWERS </a></li>
+          <li class="is-flex"><a class="header-tab" href="<%=beers_index_path%>"> BEERS </a></li>
+          <li class="is-flex"><a class="header-tab" href="<%=recipes_index_path%>">RECIPES</a></li>
+          <li class="is-flex"><a href="#">EVENTS</a></li>
           
         </ul>
       </div>

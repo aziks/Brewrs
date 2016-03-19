@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= @user.name %>
-</h1>
+<h1 class="title is-1"> <%= @user.name %> </h1>
 
 <p>
-  (PHOTO)
+  <%= image_tag @user.avatar.url(:medium) %>
 </p>
 
-<%= link_to 'Beers', user_recipe_beers_path(@user, @recipe) %>
+
+<%= link_to 'Recipes', user_recipes_path(@user) %>
+
+<%= link_to 'Beers', user_beers_path(@user) %>
 
 <%= link_to 'Back', users_path %>

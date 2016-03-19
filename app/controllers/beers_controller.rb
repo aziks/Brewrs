@@ -12,8 +12,14 @@ class BeersController < ApplicationController
   # GET /beers/1.json
   def show
     @beer = Beer.find(params[:id])
-    @recipe = Recipe.find(params[:id])
-    @user = User.find(params[:user_id])
+    @recipe = @beer.recipe
+    @user = @recipe.user
+  end
+
+  def add_new_comment
+    @beer = Beer.find(params[:id])
+    @beer.comments << Comment.new(comment_params)
+    redirect_to :action => :show, :id => @beer.id
   end
 
   # GET /beers/new
@@ -32,10 +38,7 @@ class BeersController < ApplicationController
 
   # POST /beers
   # POST /beers.json
-
-
   def create
-
     @user = current_user
     @beer = @user.beers.new(beer_params)
 
@@ -44,7 +47,7 @@ class BeersController < ApplicationController
       if @beer.save
         @recipe.beer = @beer
 
-        redirect_to user_recipe_beers_path, notice: 'Beer was successfully created!' 
+        redirect_to user_beers_path, notice: 'Beer was successfully created!' 
       else
         render 'new'  
       end
@@ -84,8 +87,12 @@ class BeersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def beer_params
-     
       params.require(:beer).permit(:name, :description, :beer_image)
-
     end
+
+    def comment_params
+      params.require(:comment).permit(:comment)
+    end
+
+  
 end

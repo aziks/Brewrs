@@ -1,42 +1,45 @@
-<h1 class="title is-1"> BREWRS HOME </h1>
+<h1 class="title is-1">BREWRS HOME</h1>
+<hr>
 
 <div class="columns">
-  <div class="column">
-    <h2 class="title"> LAST ADDED BEERS </h2>
-        <ul>
-          <% @last_added_beers.each do |beer| %>
-            <div class="container">
-              <li>
 
-                <%= image_tag beer.beer_image.url(:thumb) %>
+    <div class="column ">
+      <h2 class="subtitle">LAST ADDED BEERS</h2>
+      <hr>
+      <% @last_added_beers.each do |beer| %>           
+                
+                  <%= image_tag beer.beer_image.url(:thumb) %>
 
-                <h3> <%= link_to(beer.name, user_recipe_beer_path(beer.user_id,beer.recipe_id,beer.id)) %> </h3>
-                <p> Brewed by: <%= get_user_by_beer(beer.user_id).name %></p>
-              </li>
-            <% end %>
-            </div>
-          </ul>
-  </div>
+                  <h3> <%= link_to(beer.name, beer_path(beer.id)) %> </h3>
+                  <p> Brewed by: <%= get_user_by_beer(beer.user_id).name %></p>
+                
+                  <% end %>
+              
+    </div>
+
   <div class="column">
-    <h2 class="title"> LAST BREWERS </h2>
-        <ul>
-          <% @last_brewers.each do |user| %>
-            <div class="container">
-              <li>
+    <h2 class="subtitle">LAST BREWERS</h2>
+    <hr>
+    <% @last_brewers.each do |user| %>      
 
                 <%= image_tag user.avatar.url(:thumb) %>
 
                 <h3> <%= link_to(user.name, user_path(user)) %> </h3>
 
-              </li>
-            <% end %>
-            </div>
-          </ul>
-    </div>
-  <div class="column">
-    Third column
+                <% end %>
+          
   </div>
+
   <div class="column">
-    Fourth column
+    <h2 class="subtitle">EVENTS</h2>
+    <hr>
+
   </div>
+
+  <div class="column">
+    <h2 class="subtitle">LAST COMMENTS</h2>
+    <hr>
+
+  </div>
+
 </div>

@@ -1,15 +1,18 @@
+<div class="container">
+<h1 class="title is-1"> <%= @beer.name %> </h1>
+<hr>
+</div>
+
 <div class="columns">
 
 <p id="notice"><%= notice %></p>
 
-  <div class="column is-half">
-
-  <h1 class="title is-1"> <%= @beer.name %> </h1>
-      
-    <h2 class="subtitle"> Brewed by: <a href="<%= user_path(@user) %>"> <%= @user.name %> </a> </h2>
+  <div class="column is-quarter">
+ 
+    <h2 class="subtitle"> Brewed by: <a href="<%= get_user_by_beer(@beer.user_id) %>"> <%= get_user_by_beer(@beer.user_id).name %> </a> </h2>
 
       <% if user_session %>
-      <p><%= link_to 'Edit this beer', edit_user_recipe_beer_path(@user.id, @beer.recipe_id, @beer.id) %> </p>
+      <p><%= link_to 'Edit this beer', edit_beer_path(@beer.id) %> </p>
       <% end %>
 
       <%= image_tag @beer.beer_image.url(:medium) %>
@@ -18,11 +21,56 @@
 
     <div class="column is-quarter">
       
+      <h2 class="subtitle"> Beer Info: </h2>
       <p><strong>Name:</strong> <%= @beer.name %> </p>
       <p><strong>Description:</strong> <%= @beer.description %> </p>
 
     </div>
 
+    <div class="column is-half">
+      
+      <p><strong>MAP</strong></p>
+
+
+    </div>
+
+</div>
+<hr>
+<hr>
+
+
+
+<div class="columns">
+
+<!--   <div id="beer-location" data-lat="131" data-lng="321"></div>
+ -->
+       <div class="column">
+        <h2 class="subtitle">COMMENTS ON THIS BEER</h2>
+        <hr>
+        <% @beer.comments.each do |c| %>
+
+            <%= c.comment %>
+
+        <% end %>
+
+        </div>
+
+<% if user_signed_in? %>
+
+  <div class="column">
+      
+  <%= form_tag "/beer/add_new_comment" do %>
+    <%= hidden_field_tag "id", @beer.id %>
+    <%= text_area "comment", "comment", :rows => 5, :cols => 50 %> <br />
+    <%= submit_tag "Comment" %>
+  <% end %>
+
+  </div>
+  <% end %>
+
 </div>
 
-<%= link_to 'Back', user_recipe_beers_path(@beer.user_id, @beer.recipe_id) %>
+
+
+
+

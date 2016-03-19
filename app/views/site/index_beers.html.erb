@@ -1,4 +1,7 @@
+<div class="container">
 <h1 class="title is-1"> BEERS INDEX </h1>
+<hr>
+</div>
 
 <div class="columns is-multiline is-mobile">
   
@@ -8,7 +11,7 @@
       <div class="container">
         <%= image_tag beer.beer_image.url(:medium) %>
       </div>
-      <a href="<%= user_recipe_beer_path(beer.user_id,beer.recipe_id,beer) %>"> <%= beer.name %> </a> 
+      <a href="<%= beer_path(beer.id) %>"> <%= beer.name %> </a> 
     </div>
     
  <% end %>

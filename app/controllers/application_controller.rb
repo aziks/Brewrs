@@ -7,16 +7,24 @@ class ApplicationController < ActionController::Base
 
     before_action :configure_permitted_parameters, if: :devise_controller?
 
-
-
-  protected
-  
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) << :name
-      devise_parameter_sanitizer.for(:sign_up) << :avatar
-      devise_parameter_sanitizer.for(:account_update) << :name
-      devise_parameter_sanitizer.for(:account_update) << :avatar
-
+  def after_sign_in_path_for(resource)
+    if user_signed_in?
+       profile_path
     end
+  end
+
+protected
+  
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :name
+    devise_parameter_sanitizer.for(:sign_up) << :avatar
+    devise_parameter_sanitizer.for(:account_update) << :name
+    devise_parameter_sanitizer.for(:account_update) << :avatar
+
+  end
+
+  def comment_params
+    params.require(:beer).permit(:comment)
+  end
   
 end

@@ -1,18 +1,22 @@
 <div class="container">
-<h1 class="title is-1">Hola <%= current_user.name %>!</h1>
+  <h1 class="title is-1">Hola <%= current_user.name %>!</h1>
+
+  <a href="<%= new_recipe_path %>" class="button"> ADD NEW RECIPE! </a>
+  <a href="<%= user_beers_path(current_user) %>" class="button"> MY BEERS </a>
+
+  <hr>
 </div>
 
 <div class="columns">
   
   <div class="column is-half">
 
-      <p><%= link_to 'Edit my account', edit_user_path(@user) %> </p>
-
       <%= image_tag current_user.avatar.url(:medium) %>
           
         <p>
         <%= link_to 'My Recipes', user_recipes_path(current_user) %> |
-        <%= link_to 'New Recipe!', new_user_recipe_path(@user) %>
+        <%= link_to 'My Beers', user_beers_path(current_user) %> |
+        <%= link_to 'New Recipe!', new_recipe_path %>
         </p>
 
     </div>
@@ -20,10 +24,13 @@
   <div class="column is-quarter">
 
     <h2 class="title"> User's info: </h2>
+    <hr>
+
+    <p><%= link_to 'Edit this info', edit_user_path(@user) %> </p>
   
-    <p><strong>Name:</strong> <%= current_user.name %></p>
-    <p><strong>Email:</strong> <%= current_user.email %></p>
-    <p><strong>Email:</strong> <%= current_user.email %></p>
+      <p><strong>Name:</strong> <%= current_user.name %></p>
+      <p><strong>Email:</strong> <%= current_user.email %></p>
+      <p><strong>Email:</strong> <%= current_user.email %></p>
 
 
   </div>

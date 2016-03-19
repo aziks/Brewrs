@@ -18,6 +18,11 @@ before_action :authenticate_user!, except: [:index, :show]
     @recipe = Recipe.new
   end
 
+  def edit
+    @user = current_user
+    @recipe = Recipe.find(params[:id])
+  end
+
   def create
     @user = current_user
     @recipe = @user.recipes.new(recipe_params)
@@ -25,8 +30,20 @@ before_action :authenticate_user!, except: [:index, :show]
       if @recipe.save
         redirect_to user_recipes_path, notice: 'Recipe was successfully created!' 
       else
-        render 'new'  
+        render 'new', notice: 'Sorry something was wrong...' 
       end
+  end
+
+  def update
+    @user = User.find(params[:user_id])
+    @recipe = @user.recipes.find(params[:id])
+
+      if @recipe.update_attributes(recipe_params)
+        redirect_to user_recipe_path, notice: 'Recipe was successfully updated!'  
+      else
+        render 'edit', notice: 'Sorry something was wrong...'
+      end
+    
   end
 
 private

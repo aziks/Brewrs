@@ -1,5 +1,21 @@
 <h1 class="title">New Beer for <%= @recipe.title %></h1>
 
-<%= render 'form' %>
+<div class="columns">
+
+  <div class="column is-half">
+
+  <%= render 'form' %>
+
+  </div>
+
+  <div class="column is-half">
+    <div id="input-wrapper">
+      <input type="text" name="get-places" id="get-places">
+    </div>
+    <div id="map"></div>
+  </div>
+
+
 
 <%= link_to 'Back', user_recipes_path(@user) %>
+
