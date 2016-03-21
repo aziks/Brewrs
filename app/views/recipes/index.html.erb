@@ -15,13 +15,13 @@
       <hr>
       </div>
 
-      <a href="<%= user_recipe_path(recipe.user_id,recipe) %>"> <%= recipe.title %> </a> 
+      <h2 class="subtitle"><a href="<%= recipe_path(recipe) %>"> <%= recipe.title %> </a> </h2>
      
-       <% if current_user %>
+       <% if current_user.id == recipe.user_id %>
        <p>----------</p>
-        <p><%= link_to 'Upload the beer for this recipe!', new_user_recipe_beer_path(@user,recipe) %></p>
-        <p><%= link_to 'Edit', edit_user_recipe_path(@user,recipe) %></p>
-        <p><%= link_to 'Destroy', user_recipe_path(@user,recipe), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p><%= link_to 'Upload the beer for this recipe!', new_beer_path(recipe) %></p>
+        <p><%= link_to 'Edit', edit_recipe_path(recipe) %></p>
+        <p><%= link_to 'Destroy', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' } %></p>
         <% end %>
 
     </div>

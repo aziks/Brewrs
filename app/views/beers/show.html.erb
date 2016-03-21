@@ -9,13 +9,13 @@
 
   <div class="column is-quarter">
  
-    <h2 class="subtitle"> Brewed by: <a href="<%= get_user_by_beer(@beer.user_id) %>"> <%= get_user_by_beer(@beer.user_id).name %> </a> </h2>
-
-      <% if user_session %>
-      <p><%= link_to 'Edit this beer', edit_beer_path(@beer.id) %> </p>
-      <% end %>
+    <h2 class="subtitle"> Brewed by: <a href="<%= user_path(@beer.user_id) %>"> <%= get_user_by_id(@beer.user_id).name %> </a> </h2>
 
       <%= image_tag @beer.beer_image.url(:medium) %>
+
+      <% if current_user.id == @beer.user_id %>
+      <p><%= link_to 'Edit this beer', edit_beer_path(@beer.id) %> </p>
+      <% end %>
 
   </div>
 
@@ -29,8 +29,7 @@
 
     <div class="column is-half">
       
-      <p><strong>MAP</strong></p>
-
+        <div id="map" class="container" style="height: 400px;"></div>
 
     </div>
 
@@ -44,25 +43,38 @@
 
 <!--   <div id="beer-location" data-lat="131" data-lng="321"></div>
  -->
-       <div class="column">
-        <h2 class="subtitle">COMMENTS ON THIS BEER</h2>
-        <hr>
-        <% @beer.comments.each do |c| %>
+        <div class="column is-half">
 
-            <%= c.comment %>
+          <div class="container">
+            <h2 class="title">COMMENTS ON THIS BEER</h2>
+            <hr>
+          </div>
+       
+            <% @beer.comments.each do |c| %>
+                
+                <h2 class="title is-5"><%= get_user_by_id(c.user_id).name %> said:</h2>
 
-        <% end %>
+                <p><%= c.comment %></p>
+                <hr>
+
+            <% end %>
 
         </div>
 
 <% if user_signed_in? %>
 
-  <div class="column">
+  <div class="column is-half">
       
+      <div class="container">
+        <h2 class="title"> Comment as <%= link_to(current_user.name, profile_path) %></h2>
+        <hr>
+      </div>
+
   <%= form_tag "/beer/add_new_comment" do %>
+    <%= hidden_field_tag "user_id", current_user.id %>
     <%= hidden_field_tag "id", @beer.id %>
     <%= text_area "comment", "comment", :rows => 5, :cols => 50 %> <br />
-    <%= submit_tag "Comment" %>
+    <%= submit_tag "Comment this beer!" %>
   <% end %>
 
   </div>

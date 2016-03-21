@@ -1,4 +1,7 @@
-<h1 class="title">New Beer for <%= @recipe.title %></h1>
+<div class="container">
+<h1 class="title is-1">New Beer for <%= @recipe.title %></h1>
+<hr>
+</div>
 
 <div class="columns">
 
@@ -6,16 +9,18 @@
 
   <%= render 'form' %>
 
+  <hr>
   </div>
 
   <div class="column is-half">
     <div id="input-wrapper">
-      <input type="text" name="get-places" id="get-places">
+        <input type="text" name="get-places" id="get-places">
     </div>
-    <div id="map"></div>
+  </br>
+      <div id="map" class="container" style="height: 400px;"></div>
   </div>
 
-
+</div>
 
 <%= link_to 'Back', user_recipes_path(@user) %>
 

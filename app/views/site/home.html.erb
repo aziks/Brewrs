@@ -11,7 +11,7 @@
                   <%= image_tag beer.beer_image.url(:thumb) %>
 
                   <h3> <%= link_to(beer.name, beer_path(beer.id)) %> </h3>
-                  <p> Brewed by: <%= get_user_by_beer(beer.user_id).name %></p>
+                  <p> Brewed by: <%= get_user_by_id(beer.user_id).name %></p>
                 
                   <% end %>
               

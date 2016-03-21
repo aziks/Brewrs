@@ -10,7 +10,7 @@ before_action :authenticate_user!, except: [:index, :show]
 
   def show
     @recipe = Recipe.find(params[:id])
-    @user = User.find(params[:user_id])
+    @user = User.find(@recipe.user_id)
   end
 
   def new
@@ -44,6 +44,16 @@ before_action :authenticate_user!, except: [:index, :show]
         render 'edit', notice: 'Sorry something was wrong...'
       end
     
+  end
+
+  def destroy
+    @user = current_user
+    @recipe = @user.recipes.find(params[:id])
+
+    @recipe.destroy
+ 
+    redirect_to user_recipes_path(current_user.id), notice: 'Recipe was successfully destroyed.' 
+      
   end
 
 private

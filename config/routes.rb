@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   get 'recipes_index', to: 'site#index_recipes'
   get '/users/:user_id/beers', to: 'beers#index', as: 'user_beers'
   get '/users/:user_id/recipes', to: 'recipes#index', as: 'user_recipes'
+  post '/users/:user_id/recipes', to: 'recipes#create'
+
+  get '/beers/:recipe_id/new', to: 'beers#new', as: 'new_beer'
+  post '/beers/:recipe_id', to: 'beers#create', as: 'beers'
 
   # post '/beers/:id/comment', to: "beers#comment"
   match "/beer/add_new_comment" => "beers#add_new_comment", :as => "add_new_comment_to_beer", :via => [:post]
-
 
   devise_for :users
 
@@ -18,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :recipes, except: [:index]
 
-  resources :beers, except: [:index]
+  resources :beers, except: [:new, :index]
   
 
 

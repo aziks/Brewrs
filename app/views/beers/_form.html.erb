@@ -11,18 +11,26 @@
     </div>
   <% end %>
   
+  <p class="control">
   <%= f.label :name %>
-  <%= f.text_field :name %>
   <br>
+  <%= f.text_field :name %> 
+  </p>
+  <p class="control">
   <%= f.label :description %>
-  <%= f.text_field :description %>
   <br>
+  <%= f.text_area :description, :rows => 5, :cols => 50 %>
+  </p>
+  <p class="control">
   <div class="field">
+      <%= image_tag @beer.beer_image.url(:thumb) %>
+    <br>
       <%= f.file_field :beer_image %>
   </div> 
+  <br>
+  </p>
 
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <button class="button" type="submit" >Add new Beer!!</button>
+
 <% end %>

@@ -26,7 +26,7 @@
     <h2 class="title"> User's info: </h2>
     <hr>
 
-    <p><%= link_to 'Edit this info', edit_user_path(@user) %> </p>
+    <p><%= link_to 'Edit this info', edit_user_registration_path(current_user) %> </p>
   
       <p><strong>Name:</strong> <%= current_user.name %></p>
       <p><strong>Email:</strong> <%= current_user.email %></p>

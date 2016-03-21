@@ -1,6 +1,8 @@
 require 'pry'
 class BeersController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show]
+
   # GET /beers
   # GET /beers.json
   def index
@@ -10,6 +12,7 @@ class BeersController < ApplicationController
 
   # GET /beers/1
   # GET /beers/1.json
+
   def show
     @beer = Beer.find(params[:id])
     @recipe = @beer.recipe
@@ -17,8 +20,10 @@ class BeersController < ApplicationController
   end
 
   def add_new_comment
+    params[:comment][:user_id] = params[:user_id]
     @beer = Beer.find(params[:id])
     @beer.comments << Comment.new(comment_params)
+    @beer.user_id = current_user
     redirect_to :action => :show, :id => @beer.id
   end
 
@@ -47,7 +52,7 @@ class BeersController < ApplicationController
       if @beer.save
         @recipe.beer = @beer
 
-        redirect_to user_beers_path, notice: 'Beer was successfully created!' 
+        redirect_to user_beers_path(@user), notice: 'Beer was successfully created!' 
       else
         render 'new'  
       end
@@ -70,12 +75,12 @@ class BeersController < ApplicationController
   # DELETE /beers/1
   # DELETE /beers/1.json
   def destroy
-    @user = User.find(params[:user_id])
+    @user = current_user
     @beer = @user.beers.find(params[:id])
 
     @beer.destroy
  
-    redirect_to user_beers_path, notice: 'Beer was successfully destroyed.' 
+    redirect_to user_beers_path(current_user.id), notice: 'Beer was successfully destroyed.' 
       
   end
 
@@ -91,8 +96,7 @@ class BeersController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:comment)
+      params.require(:comment).permit(:user_id, :comment)
     end
-
   
 end
