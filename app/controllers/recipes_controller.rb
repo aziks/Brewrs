@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 
-before_action :authenticate_user!, except: [:index, :show]
+before_action :authenticate_user!, except: [:show]
 
 
   def index
@@ -10,6 +10,9 @@ before_action :authenticate_user!, except: [:index, :show]
 
   def show
     @recipe = Recipe.find(params[:id])
+    if @recipe.beer != nil
+      @beer = @recipe.beer
+    end
     @user = User.find(@recipe.user_id)
   end
 

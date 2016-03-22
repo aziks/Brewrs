@@ -28,9 +28,14 @@
 
     <p><%= link_to 'Edit this info', edit_user_registration_path(current_user) %> </p>
   
-      <p><strong>Name:</strong> <%= current_user.name %></p>
-      <p><strong>Email:</strong> <%= current_user.email %></p>
-      <p><strong>Email:</strong> <%= current_user.email %></p>
+      <p><strong>Name:</strong> </p>
+        <p><%= current_user.name %></p>
+        <br>
+      <p><strong>Email:</strong> </p>
+        <p><%= current_user.email %></p>
+        <br>
+      <p><strong>Sign up:</strong> </p>
+        <p><%= current_user.created_at.strftime('%A, %d %b %Y %l:%M %p') %></p>
 
 
   </div>

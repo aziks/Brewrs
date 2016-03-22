@@ -1,4 +1,6 @@
+
 <p id="notice"><%= notice %></p>
+
 
 <div class="container">
   <% if current_user %>
@@ -15,6 +17,10 @@
 </div>
 
 <div class="columns is-multiline is-mobile">
+
+  <% if @user.beers == [] %>
+    <p> You haven't upload any beer yet! </p>
+    <% end %>
 
   <% @beers.each do |beer| %>
 

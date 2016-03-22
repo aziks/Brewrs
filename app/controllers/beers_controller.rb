@@ -1,7 +1,7 @@
 require 'pry'
 class BeersController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show]
 
   # GET /beers
   # GET /beers.json
@@ -16,7 +16,6 @@ class BeersController < ApplicationController
   def show
     @beer = Beer.find(params[:id])
     @recipe = @beer.recipe
-    @user = @recipe.user
   end
 
   def add_new_comment
@@ -27,7 +26,19 @@ class BeersController < ApplicationController
     redirect_to :action => :show, :id => @beer.id
   end
 
-  # GET /beers/new
+  def upvote
+    @beer = Beer.find(params[:id])
+    @beer.upvote_by current_user
+    redirect_to :action => :show, :id => @beer.id
+  end
+
+  def downvote
+    @beer = Beer.find(params[:id])
+    @beer.downvote_by current_user
+    redirect_to :action => :show, :id => @beer.id
+  end
+
+ # GET /beers/new
   def new
     @user = current_user
     @beer = Beer.new

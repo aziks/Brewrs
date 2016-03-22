@@ -8,12 +8,12 @@
   <% @users.each do |user| %>
    
     <div class="column is-quarter">
-      <div class="container">
-
-        <%= image_tag user.avatar.url(:medium) %>
-
+      <div class="box">
+        <div class="container">
+          <%= image_tag user.avatar.url %>
+        </div>
+        <a href="<%= user_path(user.id) %>"> <%= user.name %> </a>
       </div>
-      <a href="<%= user_path(user.id) %>"> <%= user.name %> </a>
     </div>
     
  <% end %>

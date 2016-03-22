@@ -1,8 +1,7 @@
 <%= form_for [ @beer] do |f| %>
   <% if @beer.errors.any? %>
-    <div id="error_explanation">
+    <div class="notification is-danger" id="error_explanation">
       <h2><%= pluralize(@beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
-
       <ul>
       <% @beer.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,22 +14,26 @@
   <%= f.label :name %>
   <br>
   <%= f.text_field :name %> 
+  
   </p>
   <p class="control">
   <%= f.label :description %>
   <br>
   <%= f.text_area :description, :rows => 5, :cols => 50 %>
+  
   </p>
   <p class="control">
-  <div class="field">
-      <%= image_tag @beer.beer_image.url(:thumb) %>
-    <br>
-      <%= f.file_field :beer_image %>
-  </div> 
+<!--   PREVIEW IMAGE -->  
+  <div class="column is-half" id="target"></div> 
+ 
+  <%= f.file_field :beer_image, id: "pictureInput" %>
+  <br>
   <br>
   </p>
 
-
-  <button class="button" type="submit" >Add new Beer!!</button>
+  <button class="button is-success" type="submit" >
+    <i class="fa fa-check"></i>
+    Add new Beer!!
+  </button>
 
 <% end %>

@@ -8,10 +8,14 @@
   <% @beers.each do |beer| %>
    
     <div class="column is-quarter">
-      <div class="container">
-        <%= image_tag beer.beer_image.url(:medium) %>
+      <div class="box">
+        <div class="container">
+          <%= image_tag beer.beer_image.url(:medium) %>
+        </div>
+        <a href="<%= beer_path(beer.id) %>"> <%= beer.name %> </a>
+        <br>
+        <small> Brewed by: <%= link_to(get_user_by_id(beer.user_id).name, user_path(beer.user_id)) %></small>
       </div>
-      <a href="<%= beer_path(beer.id) %>"> <%= beer.name %> </a> 
     </div>
     
  <% end %>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'beers_index', to: 'site#index_beers'
   get 'recipes_index', to: 'site#index_recipes'
   get '/users/:user_id/beers', to: 'beers#index', as: 'user_beers'
+  
   get '/users/:user_id/recipes', to: 'recipes#index', as: 'user_recipes'
   post '/users/:user_id/recipes', to: 'recipes#create'
 
@@ -22,7 +23,13 @@ Rails.application.routes.draw do
   resources :recipes, except: [:index]
 
   resources :beers, except: [:new, :index]
-  
+
+  resources :beers, only: [:show] do
+    member do
+      put "like", to: "beers#upvote"
+      put "dislike", to: "beers#downvote"
+    end
+  end
 
 
 
