@@ -39,16 +39,10 @@ $( document ).ready(function() {
        position: position,
        map: map
      });
+
+      function createAdress(){
         
-        var array_positions = [];
-
-        array_positions.push(position);
-
-        var storage_positions = JSON.parse(window.localStorage.getItem("positions"));
-
-        array_positions.push(storage_positions);    
-        
-        window.localStorage.setItem("positions", JSON.stringify(array_positions));
+      }
 
   }
 

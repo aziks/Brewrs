@@ -5,7 +5,9 @@
   <div class="column is-half">
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="container">
     <%= devise_error_messages! %>
+  </div>
 
     <div class="field">
       <%= f.label :name %><br />
@@ -38,9 +40,9 @@
 
     <br />
 
-    <div class="actions">
-      <%= f.submit "Sign up!" %>
-    </div>
+    <button class="button is-success" type="submit">
+      Sign up!
+    </button>
     
   <% end %>
 

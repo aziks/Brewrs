@@ -12,10 +12,12 @@
       </a>
 
       <a href="<%= like_beer_path(@beer) %>" class="button is-success is-large" data-method="put"> 
-        <i class="fa fa-check"></i>
+        <i class="fa fa-heart"></i>
           Like! </a>
 
-      <a href="<%= dislike_beer_path(@beer) %>" class="button is-danger is-large" data-method="put"> Dislike... </a>
+      <a href="<%= dislike_beer_path(@beer) %>" class="button is-danger is-large" data-method="put"> 
+        <i class="fa fa-frown-o"></i>
+        Dislike... </a>
           
     </div>    
   </div>

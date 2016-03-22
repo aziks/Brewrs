@@ -31,7 +31,7 @@ before_action :authenticate_user!, except: [:show]
     @recipe = @user.recipes.new(recipe_params)
 
       if @recipe.save
-        redirect_to user_recipes_path, notice: 'Recipe was successfully created!' 
+        redirect_to user_recipes_path(@user), notice: 'Recipe was successfully created!' 
       else
         render 'new', notice: 'Sorry something was wrong...' 
       end

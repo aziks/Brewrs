@@ -5,6 +5,7 @@ class Beer < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :recipe
+  has_many :locations
 
   validates :name, presence: true
   validates :name, uniqueness: true
