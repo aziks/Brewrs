@@ -1,4 +1,4 @@
-<%= form_for [ @beer] do |f| %>
+<%= form_for [@beer] do |f| %>
   <% if @beer.errors.any? %>
     <div class="notification is-danger" id="error_explanation">
       <h2><%= pluralize(@beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
@@ -22,9 +22,10 @@
   <%= f.text_area :description, :rows => 5, :cols => 50 %>
   
   </p>
+
   <p class="control">
 <!--   PREVIEW IMAGE -->  
-  <div class="column is-half" id="target"></div> 
+  <div class="column is-quarter" id="target"></div> 
  
   <%= f.file_field :beer_image, id: "pictureInput" %>
   <br>

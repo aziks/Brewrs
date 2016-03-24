@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/beers/:recipe_id/new', to: 'beers#new', as: 'new_beer'
   post '/beers/:recipe_id', to: 'beers#create', as: 'beers'
 
+  get '/locations/:beer_id/new', to: 'locations#new', as: 'new_location'
+  post '/locations/:beer_id', to: 'locations#create', as: 'locations'
   # post '/beers/:id/comment', to: "beers#comment"
   match "/beer/add_new_comment" => "beers#add_new_comment", :as => "add_new_comment_to_beer", :via => [:post]
 
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :locations, except: [:new, :show]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

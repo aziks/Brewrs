@@ -1,10 +1,22 @@
-<div class="container">
-  <h1 class="title is-1">Hola <%= current_user.name %>!</h1>
+<div class="columns">
+  <div class="column is-half">
+    <div class="container">
+      <h1 class="title is-1">Hola <%= current_user.name %>!</h1>
 
-  <a href="<%= new_recipe_path %>" class="button"> ADD NEW RECIPE! </a>
-  <a href="<%= user_beers_path(current_user) %>" class="button"> MY BEERS </a>
+      <a href="<%= new_recipe_path %>" class="button"> ADD NEW RECIPE! </a>
+      <a href="<%= user_beers_path(current_user) %>" class="button"> MY BEERS </a>
 
-  <hr>
+      <hr>
+    </div>
+  </div>
+
+  <div class="column is-quarter is-half-tablet">
+    <div class="box"> You have: <strong><%= current_user.recipes.count%></strong> recipes</div>
+  </div>
+  <div class="column is-quarter is-half-tablet">
+    <div class="box"> You have: <strong><%= current_user.beers.count%></strong> beers</div>
+  </div>
+
 </div>
 
 <div class="columns">

@@ -57,7 +57,7 @@ class BeersController < ApplicationController
   def create
     @user = current_user
     @beer = @user.beers.new(beer_params)
-
+    
     @recipe = Recipe.find(params[:recipe_id])
 
       if @beer.save

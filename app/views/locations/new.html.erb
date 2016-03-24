@@ -1,0 +1,31 @@
+<div class="container">
+<h1 class="title is-1">New Location</h1>
+<hr>
+</div>
+
+<div class="columns">
+
+  <div class="column is-half">
+
+    <h2 class="subtitle"> Your beer is sold in: </h2>
+      <hr>
+      <div id="input-wrapper">
+          <input type="text" name="get-places" id="get-places">
+      </div>
+    </br>
+        <div  id="map" class="container" style="height: 400px"> </div>
+  </div>
+
+
+
+  <div class="column is-half">
+    <h2 class="subtitle"> Add New Address: </h2>
+      <hr>
+
+    <%= render 'form' %>
+
+    <%= link_to 'Back', locations_path %>
+
+  </div>
+
+</div>
