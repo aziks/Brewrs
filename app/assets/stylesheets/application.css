@@ -18,3 +18,22 @@
  */
 @import "bulma";
 
+@import "bulma/config/variables";
+
+strong{
+  color: #f5f7fa !important;
+}
+
+.section {
+    background: #222324 !important ;
+}
+
+.title {
+    color: #FFC244 !important;
+}
+
+.box:hover { 
+  -moz-box-shadow: 0 0 10px #ccc; 
+  -webkit-box-shadow: 0 0 10px #ccc; 
+  box-shadow: 0 0 10px #ccc; 
+  } 

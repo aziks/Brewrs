@@ -29,7 +29,7 @@
 
 <p id="notice"><%= notice %></p>
 
-  <div class="column is-quarter">
+  <div class="column is-quarter is-half-tablet">
  
     <h2 class="subtitle"> Brewed by: <a href="<%= user_path(@beer.user_id) %>"> <%= get_user_by_id(@beer.user_id).name %> </a> </h2>
 
@@ -42,7 +42,7 @@
       
   </div>
 
-    <div class="column is-quarter">
+    <div class="column is-quarter is-half-tablet">
       
       <h2 class="subtitle"> Beer Info: </h2>
 
@@ -55,7 +55,7 @@
     <div class="column is-half">
         <h2 class="subtitle"> You can buy this beer here: </h2>
       
-        <div id="map" class="container" style="height: 400px;"></div>
+        <div id="map" class="container" style="height: 400px"></div>
 
     </div>
 

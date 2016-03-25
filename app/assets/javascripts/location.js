@@ -45,7 +45,6 @@ $( document ).ready(function() {
       console.log(marker.position.lat());
       $('#lat').val(marker.position.lat());
       $('#lng').val(marker.position.lng());
-
       
   }
 

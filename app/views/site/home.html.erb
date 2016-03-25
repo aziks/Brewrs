@@ -9,7 +9,7 @@
 
       <% @last_added_beers.each do |beer| %>      
 
-          <div class="box">
+          <div class="box imgBox">
             <h2 class="subtitle is-text-centered"> <%= link_to(beer.name, beer_path(beer.id)) %> </h2>
               <div class="container">
               <%= image_tag beer.beer_image.url(:medium) %>
@@ -29,7 +29,7 @@
     
       <% @last_brewers.each do |user| %>      
 
-          <div class="box">
+          <div class="box imgBox">
             <h2 class="subtitle is-text-centered"> <%= link_to(user.name, user_path(user)) %> </h2>
               <div class="container">
               <%= image_tag user.avatar.url(:medium) %>
