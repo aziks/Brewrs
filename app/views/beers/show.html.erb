@@ -8,7 +8,7 @@
     <div class="container">
 
       <a class="button is-large">
-        <%= @beer.score %>
+        <%= @score_beer %>
       </a>
 
       <a href="<%= like_beer_path(@beer) %>" class="button is-success is-large" data-method="put"> 
@@ -27,14 +27,12 @@
 
 <div class="columns">
 
-<p id="notice"><%= notice %></p>
-
   <div class="column is-quarter is-half-tablet">
  
     <h2 class="subtitle"> Brewed by: <a href="<%= user_path(@beer.user_id) %>"> <%= get_user_by_id(@beer.user_id).name %> </a> </h2>
 
     <% if current_user == @beer.user_id %>
-      <p><%= link_to 'Edit my beer!!!', edit_beer_path(@beer.id) %> </p>
+      <p><%= link_to 'Edit my beer!', edit_beer_path(@beer.id) %> </p>
     </br>
       <% end %>
 
@@ -49,6 +47,16 @@
       <p><strong>Name:</strong> <%= @beer.name %> </p>
     </br>
       <p><strong>Description:</strong> <%= @beer.description %> </p>
+    </br>
+    <strong>You can buy it here:</strong>
+      <ul>
+      <% @locations.each do |l| %>
+        <li>- <%= l.address.html_safe %> </li>
+        <span id="lat" class="hidden_loc" val="<%= l.lat %>"></span>
+        <span id="long" class="hidden_loc" val="<%= l.long %>"></span>
+      
+      <% end %>
+      </ul>
 
     </div>
 
@@ -59,8 +67,7 @@
 
     </div>
 
-<!--   <div id="beer-location" data-lat="131" data-lng="321"></div>
- -->
+<!--   <div id="beer-location" data-lat="131" data-lng="321"></div> -->
     </div>
 <hr>
 <hr>

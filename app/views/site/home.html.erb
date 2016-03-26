@@ -3,7 +3,7 @@
 
 <div class="columns">
 
-  <div class="column is-quarter-desktop is-half-tablet">
+  <div class="column is-quarter-desktop">
     <h2 class="subtitle is-text-centered">LAST ADDED BEERS</h2>
     <hr>
 
@@ -11,6 +11,7 @@
 
           <div class="box imgBox">
             <h2 class="subtitle is-text-centered"> <%= link_to(beer.name, beer_path(beer.id)) %> </h2>
+              <hr>
               <div class="container">
               <%= image_tag beer.beer_image.url(:medium) %>
               </div>
@@ -23,7 +24,7 @@
              
   </div>
 
-  <div class="column is-quarter-desktop is-half-tablet">
+  <div class="column is-quarter-desktop">
     <h2 class="subtitle is-text-centered">LAST BREWERS</h2>
     <hr>
     
@@ -31,6 +32,7 @@
 
           <div class="box imgBox">
             <h2 class="subtitle is-text-centered"> <%= link_to(user.name, user_path(user)) %> </h2>
+              <hr>
               <div class="container">
               <%= image_tag user.avatar.url(:medium) %>
               </div>          
@@ -41,13 +43,29 @@
           
   </div>
 
-  <div class="column is-quarter-desktop is-half-tablet">
-    <h2 class="subtitle is-text-centered">EVENTS</h2>
+  <div class="column is-quarter-desktop">
+    <h2 class="subtitle is-text-centered">BEST BEERS</h2>
     <hr>
+      <% @best_beers.each do |beer| %>      
 
+          <div class="box imgBox">
+            <h2 class="subtitle is-text-centered"> <%= link_to(beer.name, beer_path(beer.id)) %> </h2>
+            <p class="is-text-centered"> Likes: <%= beer.score %> </p>
+              <hr>
+              <div class="container">
+              <%= image_tag beer.beer_image.url(:medium) %>
+              </div>
+            <br>
+
+            <small> Brewed by: <%= link_to(get_user_by_id(beer.user_id).name, user_path(beer.user_id)) %></small>
+          </div>
+          </br>       
+        
+      <% end %>
   </div>
 
-  <div class="column is-quarter-desktop is-half-tablet">
+  <div class="column is-quarter-desktop">
+
     <h2 class="subtitle is-text-centered">LAST COMMENTS</h2>
     <hr>
 

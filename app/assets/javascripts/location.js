@@ -1,4 +1,3 @@
-
 $( document ).ready(function() {
   
   console.log( "Map is ready!" );
@@ -31,6 +30,7 @@ $( document ).ready(function() {
       $('#direction').val(place.adr_address);
 
       createMarker(place.geometry.location);
+      console.log(place.geometry.location);
 
     });
   }
@@ -42,7 +42,8 @@ $( document ).ready(function() {
        map: map
      });
 
-      console.log(marker.position.lat());
+
+      console.log(marker);
       $('#lat').val(marker.position.lat());
       $('#lng').val(marker.position.lng());
       

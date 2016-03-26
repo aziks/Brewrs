@@ -24,12 +24,20 @@ strong{
   color: #f5f7fa !important;
 }
 
+p, small{
+  color: #69707a !important;
+}
+
 .section {
-    background: #222324 !important ;
+  background: #222324 !important ;
 }
 
 .title {
-    color: #FFC244 !important;
+  color: #FFC244 !important;
+}
+
+.box{
+  color: #f5f7fa !important;
 }
 
 .box:hover { 
@@ -37,3 +45,7 @@ strong{
   -webkit-box-shadow: 0 0 10px #ccc; 
   box-shadow: 0 0 10px #ccc; 
   } 
+
+.hidden_loc{
+  display: none;
+}

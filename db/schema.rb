@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323091657) do
+ActiveRecord::Schema.define(version: 20160326164343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,14 +19,16 @@ ActiveRecord::Schema.define(version: 20160323091657) do
   create_table "beers", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "recipe_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "name"
     t.text     "description"
     t.string   "beer_image_file_name"
     t.string   "beer_image_content_type"
     t.integer  "beer_image_file_size"
     t.datetime "beer_image_updated_at"
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
   end
 
   add_index "beers", ["recipe_id"], name: "index_beers_on_recipe_id", using: :btree

@@ -3,27 +3,10 @@ class BeersController < ApplicationController
 
   before_action :authenticate_user!, except: [:show]
 
-  # GET /beers
-  # GET /beers.json
+
   def index
     @user = User.find(params[:user_id])
     @beers = @user.beers.all
-  end
-
-  # GET /beers/1
-  # GET /beers/1.json
-
-  def show
-    @beer = Beer.find(params[:id])
-    @recipe = @beer.recipe
-  end
-
-  def add_new_comment
-    params[:comment][:user_id] = params[:user_id]
-    @beer = Beer.find(params[:id])
-    @beer.comments << Comment.new(comment_params)
-    @beer.user_id = current_user
-    redirect_to :action => :show, :id => @beer.id
   end
 
   def upvote
@@ -35,6 +18,21 @@ class BeersController < ApplicationController
   def downvote
     @beer = Beer.find(params[:id])
     @beer.downvote_by current_user
+    redirect_to :action => :show, :id => @beer.id
+  end
+
+  def show
+    @beer = Beer.find(params[:id])
+    @recipe = @beer.recipe
+    @locations = @beer.locations
+    @score_beer = @beer.score
+  end
+
+  def add_new_comment
+    params[:comment][:user_id] = params[:user_id]
+    @beer = Beer.find(params[:id])
+    @beer.comments << Comment.new(comment_params)
+    @beer.user_id = current_user
     redirect_to :action => :show, :id => @beer.id
   end
 

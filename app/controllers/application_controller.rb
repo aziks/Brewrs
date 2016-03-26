@@ -22,9 +22,5 @@ protected
     devise_parameter_sanitizer.for(:account_update) << :avatar
 
   end
-
-  def comment_params
-    params.require(:beer).permit(:comment)
-  end
   
 end

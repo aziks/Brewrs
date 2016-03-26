@@ -20,6 +20,11 @@ class Beer < ActiveRecord::Base
     beers.order(created_at: :desc)    
   end
 
+  def self.best_beers
+    beers = Beer.all
+    beers.order(cached_votes_score: :desc)
+  end
+
   def score
     self.get_upvotes.size - self.get_downvotes.size
   end
