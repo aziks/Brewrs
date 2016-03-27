@@ -9,18 +9,20 @@
       </ul>
     </div>
   <% end %>
-  
+
   <p class="control">
   <%= f.label :name %>
   <br>
-  <%= f.text_field :name %> 
-  
+  <p class="control has-icon">
+  <input class="input" autofocus="autofocus" name="beer[name]" >
+  <i class="fa fa-beer"></i>
   </p>
-  <p class="control">
+
+ <p class="control">
   <%= f.label :description %>
-  <br>
-  <%= f.text_area :description, :rows => 5, :cols => 50 %>
-  
+  <br>  <p class="control">
+    <textarea class="textarea" name="beer[description]" placeholder="Textarea"></textarea>
+  </p>
   </p>
 
   <p class="control">

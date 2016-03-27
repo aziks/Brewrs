@@ -28,6 +28,15 @@ p, small{
   color: #69707a !important;
 }
 
+a{
+  color: #FFFF66;
+}
+
+a:hover{
+  color: #fff;
+  text-decoration: none;
+}
+
 .header_hero{
   background-image: url("/assets/header_img.jpeg") !important;
   background-size: cover;
@@ -59,3 +68,4 @@ p, small{
 .hidden_loc{
   display: none;
 }
+

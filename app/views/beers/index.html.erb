@@ -1,6 +1,4 @@
-
 <p id="notice"><%= notice %></p>
-
 
 <div class="container">
   <% if current_user %>
@@ -29,11 +27,6 @@
         <h2 class="subtitle"> <%= link_to(beer.name, beer_path(beer.id)) %> </h2>
           <%= image_tag beer.beer_image.url(:medium) %>
         </div>
-
-          <% if current_user %>
-          <%= link_to 'Edit', edit_beer_path(beer.id) %>
-          <%= link_to 'Destroy', beer_path(beer.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
 
     </div>
   <% end %>

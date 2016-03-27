@@ -13,10 +13,15 @@
   
   <%= f.label :title %>
   <br>
-  <%= f.text_field :title, required:'' %>
-  <br>
+  <p class="control has-icon">
+  <input class="input" autofocus="autofocus" name="recipe[title]" >
+  <i class="fa fa-beer"></i>
+
+  </p>
   
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <button class="button is-success" type="submit" >
+    <i class="fa fa-check"></i>
+    Add new Recipe!!
+  </button>
+
 <% end %>

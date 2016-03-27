@@ -38,6 +38,11 @@
 
       <%= image_tag @beer.beer_image.url(:medium) %>
       
+          <% if @beer.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_beer_path(@beer.id) %> |
+          <%= link_to 'Destroy', beer_path(@beer.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+
   </div>
 
     <div class="column is-quarter is-half-tablet">
