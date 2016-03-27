@@ -4,13 +4,30 @@
 </div>
 
 <div class="columns">
-<p id="notice"><%= notice %></p>
 
-  <div class="column">
+  <div class="column is-half-tablet">
     <p>
       <%= image_tag @user.avatar.url(:medium) %>
     </p>
   </div>
+
+<div class="column is-half-tablet">
+
+    <h2 class="title"> User's info: </h2>
+    <hr>
+  
+      <p><strong>Name:</strong> </p>
+        <p><%= @user.name %></p>
+        <br>
+      <p><strong>Email:</strong> </p>
+        <p><%= @user.email %></p>
+        <br>
+      <p><strong>Sign up:</strong> </p>
+        <p><%= @user.created_at.strftime('%A, %d %b %Y %l:%M %p') %></p>
+
+
+  </div>
+
 
 </div>
 

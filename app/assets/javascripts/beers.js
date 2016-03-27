@@ -1,13 +1,26 @@
 // CREATE MARKERS ON MAP
 
-$( document ).ready(function() {
-    console.log( "Show locations in map!!" );
+   var addresses = document.getElementsByClassName('get_address') 
+   var lati = document.getElementsByClassName('hidden_lat');
+   var longi = document.getElementsByClassName('hidden_lng');
+   console.log(lati);
+   console.log(longi);
+   console.log(addresses);
 
-    // $(function(){
-    //   position
-    // })
+   for (var i=lati.length-1; i>=0; i--){  
+  console.log('test');
+    isNaN(parseFloat(lati[i].innerText)) ? latitud=40.4260577 : latitud=parseFloat(lati[i].innerText)
+    isNaN(parseFloat(longi[i].innerText)) ? longitud=-3.7556513 : longitud=parseFloat(longi[i].innerText)
 
-});
+     var Position = {
+       lat: latitud,
+       lng: longitud
+     };
+
+console.log(Position);
+     //Markers
+     showMarkers(Position);  
+}
 
 
 // PREVIEW UPLOAD IMAGE

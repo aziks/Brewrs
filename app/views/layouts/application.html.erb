@@ -10,7 +10,7 @@
 
 <body>
 
-<section class="hero is-warning is-bold">
+<section class="hero header_hero">
   <!-- Hero header: will stick at the top -->
   <div class="hero-header is-fixed-top">
     <header class="header">
@@ -57,7 +57,7 @@
   <!-- Hero content: will be in the middle -->
   <div class="hero-content">
     <div class="container">
-      <h1 class="title">
+      <h1 class="title is-2">
         Drink responsibly!
       </h1>
       <h2 class="subtitle">
@@ -92,18 +92,20 @@
 
 </section>
 
+<%= render '/site/newsletter' %>
 
   <footer class="footer">
     <div class="container">
       <div class="content is-centered">
 
-        <p>
-          <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+        <p class="is-text-centered">
+        </br>
+          <a href="http://bulma.io">Bulma</a> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
           <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
           is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>. </br>
-          
-        </p>
           Make with ♥ by me
+       </p>
+ 
       </div>
     </div>
   </footer>

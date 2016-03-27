@@ -28,16 +28,26 @@ p, small{
   color: #69707a !important;
 }
 
+.header_hero{
+  background-image: url("/assets/header_img.jpeg") !important;
+  background-size: cover;
+  background-position: center;
+
+}
+
 .section {
   background: #222324 !important ;
 }
 
 .title {
   color: #FFC244 !important;
+  text-shadow: 2px 2px #000000;
+
 }
 
 .box{
-  color: #f5f7fa !important;
+  color: #222324 !important;
+  background: #FDEF7D !important;
 }
 
 .box:hover { 

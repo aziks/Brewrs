@@ -1,19 +1,21 @@
 <div class="columns">
-  <div class="column is-half">
+  <div class="column is-half is-half-mobile">
     <div class="container">
       <h1 class="title is-1">Hola <%= current_user.name %>!</h1>
 
-      <a href="<%= new_recipe_path %>" class="button"> ADD NEW RECIPE! </a>
+      <a href="<%= new_recipe_path %>" class="button is-success"> ADD NEW RECIPE! </a>
+      <a href="<%= user_recipes_path(current_user) %>" class="button"> MY RECIPES </a>
       <a href="<%= user_beers_path(current_user) %>" class="button"> MY BEERS </a>
+
 
       <hr>
     </div>
   </div>
 
-  <div class="column is-quarter is-half-tablet">
+  <div class="column is-quarter is-half-tablet is-half-mobile">
     <div class="box"> You have: <h1 class="subtitle"><%= current_user.recipes.count%> recipes</h1></div>
   </div>
-  <div class="column is-quarter is-half-tablet">
+  <div class="column is-quarter is-half-tablet is-half-mobile">
     <div class="box"> You have: <h1 class="subtitle"><%= current_user.beers.count%> beers</h1></div>
   </div>
 
@@ -24,12 +26,6 @@
   <div class="column is-half">
 
       <%= image_tag current_user.avatar.url(:medium) %>
-          
-        <p>
-        <%= link_to 'My Recipes', user_recipes_path(current_user) %> |
-        <%= link_to 'My Beers', user_beers_path(current_user) %> |
-        <%= link_to 'New Recipe!', new_recipe_path %>
-        </p>
 
     </div>
 
@@ -38,7 +34,7 @@
     <h2 class="title"> User's info: </h2>
     <hr>
 
-    <p><%= link_to 'Edit this info', edit_user_registration_path(current_user) %> </p>
+    <p><%= link_to 'Edit your profile info', edit_user_registration_path(current_user) %> </p>
   
       <p><strong>Name:</strong> </p>
         <p><%= current_user.name %></p>

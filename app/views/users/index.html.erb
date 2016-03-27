@@ -9,10 +9,12 @@
    
     <div class="column is-quarter">
       <div class="box">
+       <a class="subtitle is-text-centered" href="<%= user_path(user.id) %>"> <%= user.name %> </a>
+        </br>
+        </br>
         <div class="container">
           <%= image_tag user.avatar.url %>
         </div>
-        <a class="subtitle is-text-centered" href="<%= user_path(user.id) %>"> <%= user.name %> </a>
       </div>
     </div>
     
@@ -20,4 +22,3 @@
 
 </div>    
         
-<%= link_to 'New User', new_user_registration_path %>

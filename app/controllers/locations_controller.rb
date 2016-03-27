@@ -39,7 +39,6 @@ before_action :authenticate_user!
       end
 
   end
-  binding.pry
 
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json

@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :locations, except: [:new, :show]
+  resources :locations, except: [:new, :show, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

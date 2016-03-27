@@ -11,11 +11,11 @@
         <%= @score_beer %>
       </a>
 
-      <a href="<%= like_beer_path(@beer) %>" class="button is-success is-large" data-method="put"> 
+      <a href="<%= like_beer_path(@beer) %>" class="button is-success is-large" data-method="put" remote= "true"> 
         <i class="fa fa-heart"></i>
           Like! </a>
 
-      <a href="<%= dislike_beer_path(@beer) %>" class="button is-danger is-large" data-method="put"> 
+      <a href="<%= dislike_beer_path(@beer) %>" class="button is-danger is-large" data-method="put" remote= "true"> 
         <i class="fa fa-frown-o"></i>
         Dislike... </a>
           
@@ -51,9 +51,11 @@
     <strong>You can buy it here:</strong>
       <ul>
       <% @locations.each do |l| %>
-        <li>- <%= l.address.html_safe %> </li>
-        <span id="lat" class="hidden_loc" val="<%= l.lat %>"></span>
-        <span id="long" class="hidden_loc" val="<%= l.long %>"></span>
+
+        <li class="get_address">- <%= l.address.html_safe %> </li>
+
+        <span class="hidden_lat" > <%= l.lat %> </span>
+        <span class="hidden_lng" > <%= l.long %> </span>
       
       <% end %>
       </ul>
@@ -61,10 +63,21 @@
     </div>
 
     <div class="column is-half">
-        <h2 class="subtitle"> You can buy this beer here: </h2>
-      
-        <div id="map" class="container" style="height: 400px"></div>
 
+      <% if @beer.locations == nil %>
+        <% if @beer.user_id == current_user.id %>
+          <h2 class="subtitle"> This beer has no locations yet... </h2>
+          <p> Add the new location for this beer! </p>
+          <%= link_to new_location(@beer) %>
+        <% else %>
+          <h2 class="subtitle"> This beer has no locations yet... </h2>
+          <p> You can ask the Brewr :) </p>
+        <% end %>
+      <% else %>
+        <h2 class="subtitle"> You can buy this beer here: </h2>      
+        <div id="map" class="container" style="height: 400px"></div>
+      <% end %>
+    
     </div>
 
 <!--   <div id="beer-location" data-lat="131" data-lng="321"></div> -->
@@ -94,8 +107,8 @@
                         </figure>
                       </div>
                       <div class="media-content">
-                        <p class="title is-5"><%= get_user_by_id(c.user_id).name %> said:</p>
-                        <p class="subtitle is-6">@johnsmith</p>
+                        <p ><%= link_to(get_user_by_id(c.user_id).name, user_path(c.user_id)) %> said:</p>
+                        <small>@johnsmith</small>
                       </div>
                     </div>
                   <div class="content">
