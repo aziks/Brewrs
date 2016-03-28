@@ -50,7 +50,7 @@
 
           <div class="box imgBox">
             <h2 class="subtitle is-text-centered"> <%= link_to(beer.name, beer_path(beer.id)) %> </h2>
-            <p class="is-text-centered"> Likes: <%= beer.score %> </p>
+            <p class="is-text-centered"> Likes: <%= beer.get_likes.size %> </p>
               <hr>
               <div class="container">
               <%= image_tag beer.beer_image.url(:medium) %>

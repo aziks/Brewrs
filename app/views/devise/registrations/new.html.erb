@@ -11,31 +11,32 @@
     <%= devise_error_messages! %>
     </div>
 
-    <div class="field">
       <%= f.label :name %><br />
-      <%= f.text_field :name%>
-    </div>
-<br />
-    <div class="field">
+  <p class="control has-icon">
+      <%= f.text_field :name, class: "input"%>
+    <i class="fa fa-user"></i>
+  </p>
+
       <%= f.label :email %><br />
-      <%= f.email_field :email%>
-    </div>
-<br />
-    <div class="field">
+  <p class="control has-icon">
+      <%= f.email_field :email, class: "input"%>
+    <i class="fa fa-envelope"></i>
+  </p>
+
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-<br />
+  <p class="control has-icon">
+      <%= f.password_field :password, class: "input",autocomplete: "off" %>
+      <i class="fa fa-lock"></i>
+  </p>
 
-    <div class="field">
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
-    <br />
+  <p class="control has-icon">
+      <%= f.password_field :password_confirmation,class: "input", autocomplete: "off" %>
+      <i class="fa fa-lock"></i>
+  </p>
 
     <div class="column is-quarter" id="target"></div> 
     
@@ -57,6 +58,8 @@
       </div>
   
   </div>
+
+  <hr>
 
   </div>
 </div>

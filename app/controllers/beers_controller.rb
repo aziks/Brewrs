@@ -12,13 +12,19 @@ class BeersController < ApplicationController
   def upvote
     @beer = Beer.find(params[:id])
     @beer.upvote_by current_user
-    redirect_to :action => :show, :id => @beer.id
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
   end
 
   def downvote
     @beer = Beer.find(params[:id])
     @beer.downvote_by current_user
-    redirect_to :action => :show, :id => @beer.id
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
   end
 
   def show

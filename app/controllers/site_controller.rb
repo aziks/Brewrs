@@ -14,6 +14,4 @@ class SiteController < ApplicationController
     @recipes = Recipe.all.sort_by {rand} [0..19]   
   end
 
-
-
 end

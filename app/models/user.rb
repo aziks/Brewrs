@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :beers
   has_many :recipes
 
+  acts_as_voter
+
   def self.last_added
     users = User.all
     users.order(created_at: :desc)  

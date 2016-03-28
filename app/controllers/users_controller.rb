@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all.sort_by {rand} [0..19]   
     
   end
 

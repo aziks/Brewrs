@@ -28,8 +28,8 @@ Rails.application.routes.draw do
 
   resources :beers, only: [:show] do
     member do
-      put "like", to: "beers#upvote"
-      put "dislike", to: "beers#downvote"
+      get "like", to: "beers#upvote"
+      get "unlike", to: "beers#downvote"
     end
   end
 

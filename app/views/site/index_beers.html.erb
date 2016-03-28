@@ -14,6 +14,7 @@
         </div>
         <a href="<%= beer_path(beer.id) %>"> <%= beer.name %> </a>
         <br>
+        <p> Likes: <%= beer.get_likes.size %> </p>
         <small> Brewed by: <%= link_to(get_user_by_id(beer.user_id).name, user_path(beer.user_id)) %></small>
       </div>
     </div>

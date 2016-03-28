@@ -5,13 +5,13 @@
     <hr>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
- 
+ <%= devise_error_messages! %>
   <p class="control has-icon">
-  <input class="input" autofocus="autofocus" type="email" name="user[email]" id="user_email">
+  <input class="input" autofocus="autofocus" type="email" name="user[email]" required>
   <i class="fa fa-envelope"></i>
   </p>
   <p class="control has-icon">
-  <input class="input" autocomplete="off" type="password" name="user[password]" id="user_password">
+  <input class="input" autocomplete="off" type="password" name="user[password]" required>
   <i class="fa fa-lock"></i>
   </p>
 
