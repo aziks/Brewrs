@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+
+  if ($('#get_location_map').length){
   
   console.log( "Map is ready!" );
 
@@ -52,4 +54,7 @@ $( document ).ready(function() {
   initMap();
   setupAutocomplete();
 
+}
+
 });
+

@@ -13,7 +13,8 @@
           <input type="text" name="get-places" id="get-places">
       </div>
     </br>
-        <div  id="map" class="container" style="height: 400px"> </div>
+        <div id="get_location_map" class="hidden"></div>
+        <div id="map" class="container" style="height: 400px"> </div>
   </div>
 
 
@@ -21,10 +22,14 @@
   <div class="column is-half">
     <h2 class="subtitle"> Add New Address: </h2>
       <hr>
+    </br>
+    </br>
 
     <%= render 'form' %>
-  <%= flash[:notice] %>
-    <%= link_to 'Back', locations_path %>
+
+    <p class="subtitle"><%= flash[:notice] %> </p> 
+    
+    <%= link_to 'No more locations for this beer', beer_path(@beer) %>
 
   </div>
 

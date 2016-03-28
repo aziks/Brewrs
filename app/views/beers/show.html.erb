@@ -38,7 +38,7 @@
 
       <%= image_tag @beer.beer_image.url(:medium) %>
       
-          <% if @beer.user_id == current_user.id %>
+          <% if current_user == @beer.user_id %>
           <%= link_to 'Edit', edit_beer_path(@beer.id) %> |
           <%= link_to 'Destroy', beer_path(@beer.id), method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
@@ -59,8 +59,8 @@
 
         <li class="get_address">- <%= l.address.html_safe %> </li>
 
-        <span class="hidden_lat" > <%= l.lat %> </span>
-        <span class="hidden_lng" > <%= l.long %> </span>
+        <span class="hidden_lat" value="<%= l.lat %>" >  </span>
+        <span class="hidden_lng" value="<%= l.long %>" >  </span>
       
       <% end %>
       </ul>
@@ -69,20 +69,25 @@
 
     <div class="column is-half">
 
-      <% if @beer.locations == nil %>
-        <% if @beer.user_id == current_user.id %>
+      <% if @beer.locations != [] %>
+
+        <h2 class="subtitle"> You can buy this beer here: </h2>      
+        <div id="show_locations_map" class="container" style="height: 400px"> </div>
+
+      <% end %>
+
+      <% if current_user.id == @beer.user_id %>
+        
           <h2 class="subtitle"> This beer has no locations yet... </h2>
-          <p> Add the new location for this beer! </p>
-          <%= link_to new_location(@beer) %>
-        <% else %>
+          <p class="subtitle"><%= link_to 'Add the new location for this beer!', new_location_path(@beer) %></p>
+           
+      <% else %>
+        
           <h2 class="subtitle"> This beer has no locations yet... </h2>
           <p> You can ask the Brewr :) </p>
-        <% end %>
-      <% else %>
-        <h2 class="subtitle"> You can buy this beer here: </h2>      
-        <div id="map" class="container" style="height: 400px"></div>
+
       <% end %>
-    
+          
     </div>
 
 <!--   <div id="beer-location" data-lat="131" data-lng="321"></div> -->
@@ -117,7 +122,7 @@
                       </div>
                     </div>
                   <div class="content">
-                    <%= c.comment %>
+                    <p><%= c.comment %></p>
                     <br>
                     <small><%= c.created_at %></small>
                   </div>

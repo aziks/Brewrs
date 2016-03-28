@@ -29,11 +29,11 @@ p, small{
 }
 
 a{
-  color: #FFFF66;
+  color: #FFAC00;
 }
 
 a:hover{
-  color: #fff;
+  color: #69707A;
   text-decoration: none;
 }
 
@@ -56,16 +56,20 @@ a:hover{
 
 .box{
   color: #222324 !important;
-  background: #FDEF7D !important;
+  background-color: #F2F2F2;
 }
 
 .box:hover { 
   -moz-box-shadow: 0 0 10px #ccc; 
   -webkit-box-shadow: 0 0 10px #ccc; 
   box-shadow: 0 0 10px #ccc; 
-  } 
+} 
 
 .hidden_loc{
   display: none;
 }
 
+.card{
+  width: 100% !important;
+  background-color: #F2F2F2 !important;
+}
