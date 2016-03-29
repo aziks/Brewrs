@@ -1,28 +1,3 @@
-// CREATE MARKERS ON MAP
-
-  //  var addresses = document.getElementsByClassName('get_address') 
-  //  var lati = document.getElementsByClassName('hidden_lat');
-  //  var longi = document.getElementsByClassName('hidden_lng');
-  //  console.log(lati);
-  //  console.log(longi);
-  //  console.log(addresses);
-
-
-
-  //    for (var i=lati.length-1; i>=0; i--){  
-  //   console.log('test');
-  //     isNaN(parseFloat(lati[i].innerText)) ? latitud=40.4260577 : latitud=parseFloat(lati[i].innerText)
-  //     isNaN(parseFloat(longi[i].innerText)) ? longitud=-3.7556513 : longitud=parseFloat(longi[i].innerText)
-
-  //      var Position = {
-  //        lat: latitud,
-  //        lng: longitud
-  //      };
-
-  // console.log(Position);
-  //      //Markers
-  //      showMarkers(Position);  
-  // }
 var map;
 
 $( document ).ready(function() {
@@ -37,7 +12,6 @@ $( document ).ready(function() {
 
    for (var i=lati.length-1; i>=0; i--){  
      isNaN(parseFloat(lati[i].innerText)) ? latitud=40.4260577 : latitude=parseFloat(lati[i].innerText)
-     console.log(latitude)
      isNaN(parseFloat(longi[i].innerText)) ? longitud=-3.7556513 : longitude=parseFloat(longi[i].innerText)
 
      // var lati = $('.hidden_lat').attr('value');
