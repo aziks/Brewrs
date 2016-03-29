@@ -68,8 +68,8 @@
 
         <li class="get_address">- <%= l.address.html_safe %> </li>
 
-        <span class="hidden_lat"> <%= l.lat %> </span>
-        <span class="hidden_lng"> <%= l.long %> </span>
+        <span class="hidden_loc hidden_lat"> <%= l.lat %> </span>
+        <span class="hidden_loc hidden_lng"> <%= l.long %> </span>
       
       <% end %>
       </ul>
@@ -85,7 +85,9 @@
 
       <% end %>
 
-      <% if current_user == @beer.user_id %>
+    <% if current_user %>
+
+      <% if current_user.id == @beer.user_id %>
         
           <h2 class="subtitle"> This beer has no locations yet... </h2>
           <p class="subtitle"><%= link_to 'Add the new location for this beer!', new_location_path(@beer) %></p>
@@ -96,6 +98,8 @@
           <p> You can ask the Brewr :) </p>
 
       <% end %>
+
+    <% end %>
           
     </div>
 
@@ -154,8 +158,8 @@
       <%= form_tag "/beer/add_new_comment" do %>
         <%= hidden_field_tag "user_id", current_user.id %>
         <%= hidden_field_tag "id", @beer.id %>
-        <%= text_area "comment", "comment", placeholder:"Add a comment...", :rows => 5, :cols => 50 %> <br />
-        <%= submit_tag "Comment this beer!" %>
+        <%= text_area "comment", "comment", class:"textarea", placeholder:"Add a comment...", :rows => 5, :cols => 50 %> <br />
+        <%= submit_tag "Comment this beer!", class:"button is-success" %>
       <% end %>
 
   </div>

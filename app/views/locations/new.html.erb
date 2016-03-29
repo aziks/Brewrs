@@ -25,9 +25,11 @@
     </br>
     </br>
 
+    <p class="subtitle"><%= flash[:notice] %> </p> 
+
+
     <%= render 'form' %>
 
-    <p class="subtitle"><%= flash[:notice] %> </p> 
     
     <%= link_to 'No more locations for this beer', beer_path(@beer) %>
 
