@@ -12,7 +12,7 @@
 
 <section class="hero header_hero">
   <!-- Hero header: will stick at the top -->
-  <div class="hero-header is-fixed-top">
+  <div class="hero-header">
     <header class="header">
       <div class="container">
         <div class="header-left">
@@ -20,14 +20,14 @@
         <img src="#" alt="Logo">
           </a>
         </div>
-        <span class="header-toggle">
+        <span id="header-toggle" class="header-toggle">
           <span></span>
           <span></span>
           <span></span>
         </span>
-        <div class="header-right header-menu">
+        <div id="header-menu" class="header-right header-menu is-hidden-touch">
           <% if user_signed_in? %>
-
+          
             <span class="header-item">
             <%= "Hola! " + current_user.name %>
             </span>
@@ -51,13 +51,35 @@
 
         </div>
       </div>
+
     </header>
+
+  <div class="column is-half is-offset-quarter">
+    <div id="header-menu" class="header-right header-menu is-hidden-desktop is-mobile">
+
+       <div class="column is-half">
+          <a class="button is-fullwidth" href="<%=new_user_registration_path%>" >            
+            <span>SIGN UP!</span>
+          </a>
+        </div>
+
+        <div class="column is-half">
+
+          <a class="button is-warning is-fullwidth" href="<%= new_user_session_path %>">            
+            <span>LOG IN</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   </div>
 
   <!-- Hero content: will be in the middle -->
   <div class="hero-content">
     <div class="container">
-      <h1 class="title is-2">
+      <h1 class="title is-1">
         Brewrs
       </h1>
       <h2 class="subtitle">

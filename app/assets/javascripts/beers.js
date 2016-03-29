@@ -83,12 +83,12 @@ $( document ).ready(function() {
 $('.like_beer').bind('ajax:success', function(){
    $(this).parent().parent().find('.vote_count').html('<%= escape_javascript @beer.votes_for.size.to_s %>');
    $(this).closest('.like_beer').hide();
-   $(this).closest('.votes').html(' <%= link_to "Unlike", unlike_beer_path(@beer), remote: true, method: :get, class: 'unlike_beer' %>');
+   $(this).closest('.votes').html(' <%= link_to "Unlike", unlike_beer_path(@beer), remote: true, method: :get, class: "unlike_beer" %>');
 });
 
 $('.unlike_beer').bind('ajax:success', function(){
    $(this).parent().parent().find('.vote_count').html('<%= escape_javascript @beer.votes_for.size.to_s %>');
    $(this).closest('.unlike_beer').hide();
-   $(this).closest('.votes').html(' <%= link_to "Like", like_beer_path(@beer), remote: true, method: :get, class: 'like_beer' %>');
+   $(this).closest('.votes').html(' <%= link_to "Like", like_beer_path(@beer), remote: true, method: :get, class: "like_beer" %>');
 
 });
