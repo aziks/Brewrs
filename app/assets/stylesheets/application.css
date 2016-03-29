@@ -16,9 +16,16 @@
  /*
  *= require font-awesome
  */
+
+@import url(https://fonts.googleapis.com/css?family=Kavoon);
 @import "bulma";
 
-@import "bulma/config/variables";
+.logo{
+  font-family: 'Kavoon' !important;
+  font-size: xx-large;
+  text-shadow: 3px 3px #000000;
+  color: #FFAC00;
+}
 
 strong{
   color: #f5f7fa !important;
@@ -38,6 +45,7 @@ a:hover{
 }
 
 .header_hero{
+  
   background-image: url("/assets/header_img.jpeg") !important;
   background-size: cover;
   background-position: center;
@@ -48,8 +56,9 @@ a:hover{
   background: #222324 !important ;
 }
 
+
 .title {
-  color: #FFC244 !important;
+  color: #FFAC00 !important;
   text-shadow: 2px 2px #000000;
 
 }
@@ -72,4 +81,20 @@ a:hover{
 .card{
   width: 100% !important;
   background-color: #F2F2F2 !important;
+}
+
+
+.tabs a {
+    color: #FFAC00 !important;
+    font-size: large;
+
+}
+
+.tabs.is-boxed a:hover {
+    background: #222324 !important;
+    border-bottom-color: #d3d6db;
+}
+
+.tabs.is-boxed a:hover {
+    background: #222324 !important;
 }

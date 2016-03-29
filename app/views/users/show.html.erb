@@ -6,6 +6,9 @@
 <div class="columns">
 
   <div class="column is-half-tablet">
+    <a class="button is-warning" href="<%= user_recipes_path(@user) %>" > Recipes </a>
+    <a class="button is-warning" href="<%= user_beers_path(@user) %>" > Beers </a>
+
     <p>
       <%= image_tag @user.avatar.url(:medium) %>
     </p>
@@ -32,8 +35,5 @@
 </div>
 
 
-<%= link_to 'Recipes', user_recipes_path(@user) %>
 
-<%= link_to 'Beers', user_beers_path(@user) %>
-
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back to users index', users_path %>

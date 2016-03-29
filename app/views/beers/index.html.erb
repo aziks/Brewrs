@@ -23,10 +23,12 @@
   <% @beers.each do |beer| %>
 
     <div class="column is-quarter">
-        <div class="container">
+        <div class="box">
+          
         <h2 class="subtitle"> <%= link_to(beer.name, beer_path(beer.id)) %> </h2>
+        <p> Likes: <%= beer.get_likes.size %> </p>
           <%= image_tag beer.beer_image.url(:medium) %>
-          <p> <%= @beer.get_likes.size %> </p>
+
         </div>
 
     </div>

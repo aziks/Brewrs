@@ -18,6 +18,7 @@
       <h2 class="subtitle"><a href="<%= recipe_path(recipe) %>"> <%= recipe.title %> </a> </h2>
       <small> Created at: <%= recipe.created_at.strftime('%A, %d %b %Y %l:%M %p') %> </small>
      
+     <% if current_user %>
        <% if current_user.id == recipe.user_id %>
        <hr>
           <p><%= link_to 'Edit', edit_recipe_path(recipe) %></p>
@@ -26,6 +27,7 @@
         <% if recipe.beer == nil %>
         <p><%= link_to 'Upload the beer for this recipe!', new_beer_path(recipe) %></p>
         <% end %>
+      <%end%>
 
     </div>
    

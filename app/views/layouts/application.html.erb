@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Brewrs</title>
+  <title>Brewrs - The local home brewers community</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -17,7 +17,7 @@
       <div class="container">
         <div class="header-left">
           <a class="header-item" href="<%=root_path%>">
-        <img src="#" alt="Logo">
+            <span class="logo">BREWRS</span>
           </a>
         </div>
         <span id="header-toggle" class="header-toggle">
@@ -44,7 +44,7 @@
             <%= link_to 'Sign_in', new_user_session_path %>
             </span>
             <span class="header-item">
-            <a class="button" href="<%=new_user_registration_path%>">Sign Up!</a>
+            <a class="button is-warning" href="<%=new_user_registration_path%>">Sign Up!</a>
             </span>
 
           <% end %>
@@ -79,9 +79,9 @@
   <!-- Hero content: will be in the middle -->
   <div class="hero-content">
     <div class="container">
-      <h1 class="title is-1">
-        Brewrs
-      </h1>
+      <span class="logo">
+        BREWRS
+      </span>
       <h2 class="subtitle">
         The local community of home brewers 
       </h2>
