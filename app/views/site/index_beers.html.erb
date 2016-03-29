@@ -10,7 +10,9 @@
     <div class="column is-quarter">
       <div class="box">
         <div class="container">
-          <%= image_tag beer.beer_image.url(:medium) %>
+          <a href="<%= beer_path(beer.id) %>" >
+              <%= image_tag beer.beer_image.url(:medium) %>
+          </a>          
         </div>
         <a href="<%= beer_path(beer.id) %>"> <%= beer.name %> </a>
         <br>

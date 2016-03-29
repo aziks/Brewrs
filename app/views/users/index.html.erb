@@ -13,7 +13,9 @@
         </br>
         </br>
         <div class="container">
-          <%= image_tag user.avatar.url %>
+            <a href="<%= user_path(user.id) %>" >
+              <%= image_tag user.avatar.url(:medium) %>
+            </a>
         </div>
       </div>
     </div>

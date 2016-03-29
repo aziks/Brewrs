@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-  if ($('#get_location_map').length){
+  if ($('#get_location_map').length > 0){
   
   console.log( "Map is ready!" );
 
@@ -32,7 +32,6 @@ $( document ).ready(function() {
       $('#direction').val(place.adr_address);
 
       createMarker(place.geometry.location);
-      console.log(place.geometry.location);
 
     });
   }

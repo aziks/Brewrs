@@ -1,7 +1,7 @@
 <h1 class="title is-1">BREWRS HOME</h1>
 <hr>
 
-<div class="columns">
+<div class="columns is-tablet">
 
   <div class="column is-quarter-desktop">
     <h2 class="subtitle is-text-centered">LAST ADDED BEERS</h2>
@@ -13,7 +13,9 @@
             <h2 class="subtitle is-text-centered"> <%= link_to(beer.name, beer_path(beer.id)) %> </h2>
               <hr>
               <div class="container">
+                <a href="<%= beer_path(beer.id) %>" >
               <%= image_tag beer.beer_image.url(:medium) %>
+                </a>
               </div>
             <br>
             <small> Brewed by: <%= link_to(get_user_by_id(beer.user_id).name, user_path(beer.user_id)) %></small>
@@ -34,7 +36,9 @@
             <h2 class="subtitle is-text-centered"> <%= link_to(user.name, user_path(user)) %> </h2>
               <hr>
               <div class="container">
+                <a href="<%= user_path(user.id) %>" >
               <%= image_tag user.avatar.url(:medium) %>
+            </a>
               </div>          
           </div>
           </br>
@@ -53,7 +57,9 @@
             <p class="is-text-centered"> Likes: <%= beer.get_likes.size %> </p>
               <hr>
               <div class="container">
+                <a href="<%= beer_path(beer.id) %>" >
               <%= image_tag beer.beer_image.url(:medium) %>
+                </a>              
               </div>
             <br>
 
@@ -66,7 +72,7 @@
 
   <div class="column is-quarter-desktop">
 
-    <h2 class="subtitle is-text-centered">LAST COMMENTS</h2>
+    <h2 class="subtitle is-text-centered">EVENTS</h2>
     <hr>
 
   </div>

@@ -27,8 +27,9 @@
           
         <h2 class="subtitle"> <%= link_to(beer.name, beer_path(beer.id)) %> </h2>
         <p> Likes: <%= beer.get_likes.size %> </p>
-          <%= image_tag beer.beer_image.url(:medium) %>
-
+          <a href="<%= beer_path(beer.id) %>" >
+              <%= image_tag beer.beer_image.url(:medium) %>
+                </a>
         </div>
 
     </div>

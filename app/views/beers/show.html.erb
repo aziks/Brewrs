@@ -89,9 +89,13 @@
 
       <% if current_user.id == @beer.user_id %>
         
+        <% if @beer.locations == [] %>
           <h2 class="subtitle"> This beer has no locations yet... </h2>
-          <p class="subtitle"><%= link_to 'Add the new location for this beer!', new_location_path(@beer) %></p>
-           
+        <% end %>
+      </br>
+           <a href="<%= new_location_path(@beer) %>" class="button is-warning is-large unlike_beer" data-method="get" remote= "true"> 
+              <i class="fa fa-map-marker"></i>
+              Add a new location for this beer! </a>
       <% else %>
         
           <h2 class="subtitle"> This beer has no locations yet... </h2>

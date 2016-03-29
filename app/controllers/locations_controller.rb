@@ -20,6 +20,8 @@ before_action :authenticate_user!
     @beer = Beer.find(params[:beer_id])
 
     @location = Location.new
+
+    @locations = @beer.locations
   end
 
   # GET /locations/1/edit

@@ -19,7 +19,8 @@
 
 
 
-  <div class="column is-half">
+<div class="column is-half">
+  
     <h2 class="subtitle"> Add New Address: </h2>
       <hr>
     </br>
@@ -29,9 +30,28 @@
 
 
     <%= render 'form' %>
+      
+    <div class="container">  
 
-    
-    <%= link_to 'No more locations for this beer', beer_path(@beer) %>
+      <% if @beer.locations != [] %>
+    </br>
+        <strong>You can buy it here:</strong>
+      <ul>
+        <% @locations.each do |l| %>
+
+          <li class="get_address">- <%= l.address.html_safe %> </li>
+
+          <span class="hidden_loc hidden_lat"> <%= l.lat %> </span>
+          <span class="hidden_loc hidden_lng"> <%= l.long %> </span>
+        
+        <% end %>
+      <% end %>
+      
+      </ul>
+</br>
+    <%= link_to 'No more locations for this beer', beer_path(@beer), class:"button is-warning" %>
+
+    </div>
 
   </div>
 

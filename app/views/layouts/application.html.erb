@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Brewrs - The local home brewers community</title>
+  <title>Brewrs - The local community of homebrewers</title>
+
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Kavoon::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+
   <link href='https://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet' type='text/css'>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
 </head>
 
 <body>
@@ -26,26 +42,20 @@
           <span></span>
           <span></span>
         </span>
+        
         <div id="header-menu" class="header-right header-menu is-hidden-touch">
+          
           <% if user_signed_in? %>
           
-            <span class="header-item">
-            <%= "Hola! " + current_user.name %>
-            </span>
-            <span class="header-item">
-            <%= link_to 'My profile', profile_path %>
-            </span>
-            <span class="header-item">
-            <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
-            </span>
+            <span class="header-item"><%= "Hola! " + current_user.name %></span>
+            <span class="header-item"><%= link_to 'My profile', profile_path %></span>
+            <span class="header-item"><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %></span>
           
           <% else %>
             
-            <span class="header-item"> 
-            <%= link_to 'Sign_in', new_user_session_path %>
-            </span>
+            <span class="header-item"><%= link_to 'Sign_in', new_user_session_path %></span>
             <span class="header-item">
-            <a class="button is-warning" href="<%=new_user_registration_path%>">Sign Up!</a>
+              <a class="button is-warning" href="<%=new_user_registration_path%>">Sign Up!</a>
             </span>
 
           <% end %>
@@ -84,7 +94,7 @@
         BREWRS
       </span>
       <h2 class="subtitle is-3">
-        The local community of home brewers 
+        The local community of homebrewers 
       </h2>
     </div>
   </div>

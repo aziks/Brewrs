@@ -1,6 +1,7 @@
+$( document ).ready(function() {
+
 var map;
 
-$( document ).ready(function() {
 
   if ($('#show_locations_map').length > 0) {
 
