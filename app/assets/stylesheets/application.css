@@ -27,6 +27,12 @@
   color: #FFAC00;
 }
 
+.header_name{
+  font-family: 'Kavoon' !important;
+  font-size: -webkit-xxx-large;  text-shadow: 3px 3px #000000;
+  color: #FFAC00;
+}
+
 strong{
   color: #f5f7fa !important;
 }
@@ -45,7 +51,7 @@ a:hover{
 }
 
 .header_hero{
-  
+
   background-image: url("/assets/header_img.jpeg") !important;
   background-size: cover;
   background-position: center;
