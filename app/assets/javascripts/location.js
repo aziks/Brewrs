@@ -28,7 +28,7 @@ $( document ).ready(function() {
           alert("The place has no location...?")
         }
 
-      $('#show_address').append(place.adr_address);
+      $('#show_address').append('<div class="box">' + place.adr_address + '</div>');
       $('#direction').val(place.adr_address);
 
       createMarker(place.geometry.location);
