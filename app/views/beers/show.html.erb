@@ -3,8 +3,8 @@
   <div class="column is-quarter">
     <div class="container">
       <h1 class="title is-1"> <%= @beer.name %> </h1>
-      <p> Recipe: <%= @recipe.title %></p>
-      <%= link_to(@recipe.title, recipe_path(@recipe)) %>
+      <p> Recipe: <%= link_to(@recipe.title, recipe_path(@recipe)) %></p>
+      
     </div>
   </div>
 
@@ -19,8 +19,9 @@
   <div class="column is-quarter">
 
       <div class="vote_count">
-        <a class="button is-large"> <%= @beer.get_likes.size %> Likes by users </a>
-      </div>
+<!--         <a class="button is-large"> <%= @beer.get_likes.size %> Likes by users </a> --> 
+    
+     </div>
 
   </div>
 

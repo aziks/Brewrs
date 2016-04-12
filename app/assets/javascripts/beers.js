@@ -55,8 +55,10 @@ var map;
 
 });
 
+
 $('.like_beer').bind('ajax:success', function(){
-   $(this).parent().parent().find('.vote_count').html('<%= escape_javascript @beer.votes_for.size.to_s %>');
+  console.log("like");
+   $(this).parent().parent().find('.vote_count').html('<%= escape_javascript @beer.get_likes.size %>');
    $(this).closest('.like_beer').hide();
    $(this).closest('.votes').html(' <%= link_to "Unlike", unlike_beer_path(@beer), remote: true, method: :get, class: "unlike_beer" %>');
 });

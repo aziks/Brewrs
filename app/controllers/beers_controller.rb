@@ -14,7 +14,7 @@ class BeersController < ApplicationController
     @beer.upvote_by current_user
     respond_to do |format|
       format.html { redirect_to :back }
-      format.js { render layout: false }
+      format.json { render json: @beer }
     end
   end
 
