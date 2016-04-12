@@ -1,4 +1,3 @@
-require 'pry'
 class BeersController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
